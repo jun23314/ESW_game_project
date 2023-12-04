@@ -13,8 +13,10 @@ class BackGround:
                 if(self.list[1]>-50):
                     for _ in range(0, 15):
                         self.list[1] -= 1
+                        self.position = tuple(self.list)
                     for _ in range(0, 15):
                         self.list[1] += 1
+                        self.position = tuple(self.list)
                 else:
                     self.list[1] = self.list[1]
 
