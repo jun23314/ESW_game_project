@@ -1,5 +1,4 @@
 from PIL import Image
-import time
 import numpy as np
 from colorsys import hsv_to_rgb
 from Character_1 import Character_1
@@ -9,13 +8,16 @@ from BackGround import BackGround
 def main():
     joystick = Joystick()
     background = BackGround()
-    start = Image.open("start.png")
+    makenew = BackGround()
+    gameclearflag = 0
+    life_count = 0
+    start_ = Image.open('start.png')
     
     character_ = Character_1((background.position[0]+90, background.position[1]+130), background)
     my_image_ = background.shape.crop((background.position[0],background.position[1], background.position[0]+240, background.position[1]+240))
     my_image_.paste(character_.shape, (90, 130))
     
-    joystick.disp.image(start)
+    joystick.disp.image(start_)
 
     while True:
         command = {'move': False, 'up': False , 'down': False, 'left': False, 'right': False}
@@ -37,7 +39,9 @@ def main():
             command['right'] = True
             command['move'] = True
             
-        
+    
+    
+        background.move(command)
     joystick.disp.image(my_image_)
         
         
