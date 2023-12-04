@@ -23,12 +23,16 @@ class BackGround:
             if command['left']:
                 if(self.list[0]>0):
                     self.list[0] -= 5
+                    self.position = tuple(self.list)
                 else:
                     self.list[0] = self.list[0]
+                    self.position = tuple(self.list)
                 
             if command['right']:
                 if(self.list[0]<259):
                     self.list[0] += 5
+                    self.position = tuple(self.list)
                 else:
                     self.list[0] = self.list[0]
-        self.position = tuple(self.list)
+                    self.position = tuple(self.list)
+        
