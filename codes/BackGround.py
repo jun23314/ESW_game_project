@@ -3,7 +3,7 @@ from PIL import Image
 
 class BackGround:
     def __init__(self):
-        self.shape = Image.open("background.png").convert('RGBA')
+        self.shape = Image.open("~\ESW_game_project\images\background.png").convert('RGBA')
         self.position = (119, 259)
         
     def move(self, command = None):
