@@ -13,9 +13,9 @@ def main():
     life_count = 0
     start_ = Image.open('start.png')
     
-    character_ = Character_1((background.position[0]+90, background.position[1]+130), background)
+    character_ = Character_1((background.position[0]+10, background.position[1]+130), background)
     my_image_ = background.shape.crop((background.position[0],background.position[1], background.position[0]+240, background.position[1]+240))
-    my_image_.paste(character_.shape, (90, 130))
+    my_image_.paste(character_.shape, (10, 130))
     
     joystick.disp.image(start_)
 
@@ -39,9 +39,13 @@ def main():
             command['right'] = True
             command['move'] = True
             
-    
-    
         background.move(command)
+        if command['move']==True:
+            my_image_ = background.shape.crop((background.position[0], background.position[1], background.position[0]+240, background.position[1]+240))
+            character = Character_1((background.position[0]+10, background.position[1]+130), background)
+            my_image_.paste(character.shape, (10, 130))
+            joystick.disp.image(my_image_)
+
     joystick.disp.image(my_image_)
         
         
