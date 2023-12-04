@@ -9,7 +9,7 @@ from BackGround import BackGround
 def main():
     joystick = Joystick()
     background = BackGround()
-    start = Image.open('~\ESW_game_project\images\start.png')
+    start = Image.open("start.png")
     
     character_ = Character_1((background.position[0]+90, background.position[1]+130), background)
     my_image_ = background.shape.crop((background.position[0],background.position[1], background.position[0]+240, background.position[1]+240))
