@@ -5,7 +5,7 @@ from PIL import Image
 
 class Character_1:
     def __init__(self, position, background):
-        background = background.shape.crop((position[0], position[1], position[0]+70, position[1]+70))
+        background = background.shape.crop((position[0], position[1], position[0]+50, position[1]+50))
         self.shape = Image.open("character_1.png").convert('RGBA')
         self.shape = Image.alpha_composite(background, self.shape)
         self.life = 5
