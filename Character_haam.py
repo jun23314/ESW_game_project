@@ -13,7 +13,7 @@ class Character_haam:
         
 
     def collision_check(self, character, enemys):
-        for enemy in enemys[0]:
+        for enemy in enemys:
             collision = self.overlap(character.attack, enemy.attack)
             if collision:
                 if enemy.state == 'live':
