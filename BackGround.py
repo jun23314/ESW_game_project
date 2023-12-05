@@ -10,7 +10,7 @@ class BackGround:
         self.list = list(self.position)
         if command['move'] == True:
             if command['up']:
-                self.list[1] -= 20
+                self.list[1] += 20
             
             if command['left']:
                 if(self.list[0]>0):
