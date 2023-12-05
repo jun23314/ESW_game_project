@@ -10,6 +10,7 @@ from Character_Left_2 import Character_Left_2
 from Character_Left_3 import Character_Left_3
 from Character_Left_4 import Character_Left_4
 from Enemy_1 import Enemy_1
+from Enemy_2 import Enemy_2
 from Bullet import Bullet
 from Joystick import Joystick
 from BackGround import BackGround
@@ -23,8 +24,8 @@ def main():
     
     plant = Enemy_1((100, 543), background.shape)
     background.shape.paste(plant.shape, plant.position)
-    tree = Enemy_1((170, 543), background.shape)
-    background.shape.paste(plant.shape, plant.position)
+    tree = Enemy_2((170, 543), background.shape)
+    background.shape.paste(tree.shape, tree.position)
     
     character_ = Character_1((background.position[0]+50, background.position[1]+187), background)
     my_image_ = background.shape.crop((background.position[0],background.position[1], background.position[0]+240, background.position[1]+240))
