@@ -20,14 +20,14 @@ def main():
     start_ = Image.open('start.png')
     
     
-    plant = Enemy_1((100, 420), background.shape)
+    plant = Enemy_1((100, 543), background.shape)
     background.shape.paste(plant.shape, plant.position)
     
-    character_ = Character_1((background.position[0]+50, background.position[1]+180), background)
+    character_ = Character_1((background.position[0]+50, background.position[1]+210), background)
     my_image_ = background.shape.crop((background.position[0],background.position[1], background.position[0]+240, background.position[1]+240))
-    my_image_.paste(character_.shape, (50, 180))
+    my_image_.paste(character_.shape, (50, 210))
     
-    joystick.disp.image(start_)
+    #joystick.disp.image(start_)
 
     while True:
         command = {'move': False, 'up': False , 'down': False, 'left': False, 'right': False}
@@ -52,20 +52,20 @@ def main():
         background.move(command)
         if command['move']==True and command['right']==True:
             my_image_ = background.shape.crop((background.position[0], background.position[1], background.position[0]+240, background.position[1]+240))
-            character = Character_2((background.position[0]+50, background.position[1]+180), background)
-            my_image_.paste(character.shape, (50, 180))
+            character = Character_2((background.position[0]+50, background.position[1]+210), background)
+            my_image_.paste(character.shape, (50, 210))
             joystick.disp.image(my_image_)
             my_image_ = background.shape.crop((background.position[0], background.position[1], background.position[0]+240, background.position[1]+240))
-            character = Character_3((background.position[0]+50, background.position[1]+180), background)
-            my_image_.paste(character.shape, (50, 180))
+            character = Character_3((background.position[0]+50, background.position[1]+210), background)
+            my_image_.paste(character.shape, (50, 210))
             joystick.disp.image(my_image_)
             my_image_ = background.shape.crop((background.position[0], background.position[1], background.position[0]+240, background.position[1]+240))
-            character = Character_4((background.position[0]+50, background.position[1]+180), background)
-            my_image_.paste(character.shape, (50, 180))
+            character = Character_4((background.position[0]+50, background.position[1]+210), background)
+            my_image_.paste(character.shape, (50, 210))
             joystick.disp.image(my_image_)
             my_image_ = background.shape.crop((background.position[0], background.position[1], background.position[0]+240, background.position[1]+240))
-            character = Character_1((background.position[0]+50, background.position[1]+180), background)
-            my_image_.paste(character.shape, (50, 180))
+            character = Character_1((background.position[0]+50, background.position[1]+210), background)
+            my_image_.paste(character.shape, (50, 210))
             joystick.disp.image(my_image_)
             
         if command['move']==True and command['left']==True:
