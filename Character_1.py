@@ -8,9 +8,9 @@ class Character_1:
         self.shape = Image.alpha_composite(background, self.shape)
         self.life = 5
         self.safe = np.array([position[0] , position[1] , position[0] + 30, position[1] + 30])
-        self.level = 1
+        self.state = None
         self.position = position
-        self.center = np.array([position[0]+35, position[1]+35])
+        self.center = np.array([position[0]+15, position[1]+15])
 
     def collision_check(self, character, enemys, character_):
         for enemy in enemys[::-1]:

@@ -9,6 +9,7 @@ from Character_Left_1 import Character_Left_1
 from Character_Left_2 import Character_Left_2
 from Character_Left_3 import Character_Left_3
 from Character_Left_4 import Character_Left_4
+from Enemy_1 import Enemy_1
 from Joystick import Joystick
 from BackGround import BackGround
 
@@ -17,7 +18,10 @@ def main():
     background = BackGround()
     makenew = BackGround()
     start_ = Image.open('start.png')
-    isJump = 0
+    
+    
+    enemy_1_1 = Enemy_1((120, 180), background.shape)
+    background.shape.paste(enemy_1_1.shape, enemy_1_1.position)
     
     character_ = Character_1((background.position[0]+120, background.position[1]+180), background)
     my_image_ = background.shape.crop((background.position[0],background.position[1], background.position[0]+240, background.position[1]+240))
