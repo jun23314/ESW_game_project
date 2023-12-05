@@ -67,7 +67,7 @@ def main():
             character = Character_haam((background.position[0]+50, background.position[1]+187), background)
             my_image_.paste(character.shape, (50, 187))
             joystick.disp.image(my_image_)
-            character.collision_check(character_, enemys)
+            character.collision_check(character, enemys)
             time.sleep(2)
             my_image_ = background.shape.crop((background.position[0], background.position[1], background.position[0]+240, background.position[1]+240))
             character = Character_1((background.position[0]+50, background.position[1]+187), background)
@@ -84,26 +84,7 @@ def main():
 
                     
 
-        background.move(command)
-        if command['attack'] == True:
-            bullet = Bullet(my_image_, character)
-            my_image_.paste(bullet.shape, (85, 75))
-            joystick.disp.image(my_image_)
-            bullet.collision_check_long(character_, enemys)
-            my_image_.paste(bullet.shape, (85, 75))
-            joystick.disp.image(my_image_)
-            bullet.collision_check_long(character_, enemys)
-            my_image_.paste(bullet.shape, (85, 75))
-            joystick.disp.image(my_image_)
-            bullet.collision_check_long(character_, enemys)
-            my_image_.paste(bullet.shape, (85, 75))
-            joystick.disp.image(my_image_)
-            bullet.collision_check_long(character_, enemys)
-
-            my_image_ = background.shape.crop((background.position[0], background.position[1], background.position[0]+240, background.position[1]+240))
-            my_image_.paste(character.shape, (90, 130))
-            joystick.disp.image(my_image_)
-        
+        background.move(command)        
         if command['move']==True and command['right']==True:
             if character_.state == 'eat':
                 my_image_ = background.shape.crop((background.position[0], background.position[1], background.position[0]+240, background.position[1]+240))
