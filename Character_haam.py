@@ -17,6 +17,7 @@ class Character_haam:
             collision = self.overlap(character.attack, enemy.attack)
             if collision:
                 if enemy.state == 'live':
+                    enemy.state == 'dead'
                     character.state = 'eat'
 
     def overlap(self, enemys_position, my_position):

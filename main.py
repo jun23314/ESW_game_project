@@ -28,6 +28,7 @@ from BackGround import BackGround
 def main():
     joystick = Joystick()
     background = BackGround()
+    newBackground = BackGround()
     start_ = Image.open('start.png')
     
     
@@ -44,7 +45,6 @@ def main():
     
     joystick.disp.image(start_)
 
-    bullets = []
     while True:
         command = {'move': False, 'up': False , 'down': False, 'left': False, 'right': False, 'attack': False, 'haam': False}
         
@@ -73,6 +73,16 @@ def main():
             character = Character_1((background.position[0]+50, background.position[1]+187), background)
             my_image_.paste(character.shape, (50, 187))
             joystick.disp.image(my_image_)
+            
+            
+        
+        for enemy in enemys:
+            if enemy == plant:
+                if enemy.state == 'dead':
+                    enemy.death(newBackground.shape)
+                    background.shape.paste(enemy.shape_, (enemy.position[0], enemy.position[1]))
+
+                    
 
         background.move(command)
         if command['attack'] == True:
