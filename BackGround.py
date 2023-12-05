@@ -9,8 +9,6 @@ class BackGround:
     def move(self, command = None):
         self.list = list(self.position)
         if command['move'] == True:
-            if command['up']:
-                self.list[1] -= 1
             
             if command['left']:
                 if(self.list[0]>0):
@@ -27,4 +25,4 @@ class BackGround:
     
     def jump(self):
         self.list = list(self.position)
-        self.list[1] += 1
+        self.list[1] -= 1
