@@ -14,4 +14,4 @@ class Enemy_2:
 
     def death(self, background):
         self.state = 'death'
-        self.shape_ = background.crop((self.position[0], self.position[1], self.position[0]+30, self.position[1]+30))
+        self.shape_ = background.crop((self.position[0], self.position[1], self.position[0]+70, self.position[1] + 70))
