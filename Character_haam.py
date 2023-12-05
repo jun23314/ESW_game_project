@@ -20,5 +20,5 @@ class Character_haam:
                     enemy.state == 'dead'
                     character_.state = 'eat'
 
-    def overlap(self, enemys_position, my_position):
-        return my_position[2] >= enemys_position[0] >= my_position[0] and my_position[2] >= enemys_position[2] >= my_position[0]
+    def overlap(self, ego_position, other_position):
+        return (ego_position[2] >= other_position[0] >= ego_position[0] or ego_position[2]>=other_position[2] >= ego_position[0]) and (ego_position[1] <= other_position[1] <= ego_position[3] or ego_position[1] <= other_position[3] <= ego_position[3])
