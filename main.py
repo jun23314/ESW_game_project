@@ -37,7 +37,7 @@ def main():
 
     bullets = []
     while True:
-        command = {'move': False, 'up': False , 'down': False, 'left': False, 'right': False}
+        command = {'move': False, 'up': False , 'down': False, 'left': False, 'right': False, 'attack': False}
         
         # 이동
         if not joystick.button_Five.value:
@@ -58,11 +58,34 @@ def main():
         
          # 공격
         if not joystick.button_Six.value:
-            bullet = Bullet(character.position, command)
-            bullets.append(bullet)
-               
+            command['attack'] = True
             
+            
+
         background.move(command)
+        
+        if command['attack'] == True:
+            bullet = Bullet(my_image_, character)
+            my_image_.paste(bullet.shape, (85, 75))
+            joystick.disp.image(my_image_)
+            bullet.collision_check_long(character_, enemys)
+            bullet.move()
+            my_image_.paste(bullet.shape, (85, 75))
+            joystick.disp.image(my_image_)
+            bullet.collision_check_long(character_, enemys)
+            my_image_.paste(bullet.shape, (85, 75))
+            joystick.disp.image(my_image_)
+            bullet.collision_check_long(character_, enemys)
+            my_image_.paste(bullet.shape, (85, 75))
+            joystick.disp.image(my_image_)
+            bullet.collision_check_long(character_, enemys)
+            
+            my_image_ = background.shape.crop((background.position[0], background.position[1], background.position[0]+240, background.position[1]+240))
+            my_image_.paste(character.shape, (90, 130))
+            joystick.disp.image(my_image_)
+            
+            
+        
         if command['move']==True and command['right']==True:
             my_image_ = background.shape.crop((background.position[0], background.position[1], background.position[0]+240, background.position[1]+240))
             character = Character_2((background.position[0]+50, background.position[1]+187), background)
