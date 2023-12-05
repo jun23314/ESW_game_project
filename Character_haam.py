@@ -12,7 +12,7 @@ class Character_haam:
         self.center = np.array([position[0]+15, position[1]+15])
         
 
-    def collision_check(self, character, enemys, character_):
+    def collision_check(self, character, enemys):
         for enemy in enemys[0]:
             collision = self.overlap(character.attack, enemy.attack)
             if collision:
