@@ -20,8 +20,8 @@ def main():
     start_ = Image.open('start.png')
     
     
-    enemy_1_1 = Enemy_1((120, 180), background.shape)
-    background.shape.paste(enemy_1_1.shape, enemy_1_1.position)
+    plant = Enemy_1((240, 180), background.shape)
+    background.shape.paste(plant.shape, plant.position)
     
     character_ = Character_1((background.position[0]+120, background.position[1]+180), background)
     my_image_ = background.shape.crop((background.position[0],background.position[1], background.position[0]+240, background.position[1]+240))
@@ -88,7 +88,7 @@ def main():
         
         if command['move'] == True and command['up'] == True:
             for _ in range(0, 15):
-                background.move(1)
+                background.move('up')
                 my_image_ = background.shape.crop((background.position[0], background.position[1], background.position[0]+240, background.position[1]+240))
                 character = Character_1((background.position[0]+120, background.position[1]+180), background)
                 my_image_.paste(character.shape, (120, 180))

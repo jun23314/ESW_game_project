@@ -8,10 +8,10 @@ class BackGround:
         
     def move(self, command = None):
         self.list = list(self.position)
-        if command['left']:
+        if command['up']:
                 self.list[1] -= 1
         if command['move'] == True:
-            if command['left']:
+            if command['up']:
                 self.list[1] -= 1
                 
             if command['left']:
