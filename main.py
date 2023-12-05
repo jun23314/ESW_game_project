@@ -86,6 +86,7 @@ def main():
             my_image_ = background.shape.crop((background.position[0], background.position[1], background.position[0]+240, background.position[1]+240))
             character = Character_1((background.position[0]+120, background.position[1]+180), background)
             my_image_.paste(character.shape, (120, 180))
+            joystick.disp.image(my_image_)
             
             
 
