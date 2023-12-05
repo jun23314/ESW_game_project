@@ -20,7 +20,7 @@ def main():
     start_ = Image.open('start.png')
     
     
-    plant = Enemy_1((240, 180), background.shape)
+    plant = Enemy_1((100, 420), background.shape)
     background.shape.paste(plant.shape, plant.position)
     
     character_ = Character_1((background.position[0]+50, background.position[1]+180), background)
