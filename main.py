@@ -67,10 +67,13 @@ def main():
             character = Character_haam((background.position[0]+50, background.position[1]+187), background)
             my_image_.paste(character.shape, (50, 187))
             joystick.disp.image(my_image_)
-            character.collision_check(character, enemys)
+            character.collision_check(character, enemys, character_)
             time.sleep(2)
             my_image_ = background.shape.crop((background.position[0], background.position[1], background.position[0]+240, background.position[1]+240))
-            character = Character_1((background.position[0]+50, background.position[1]+187), background)
+            if character_.state == 'eat':
+                character = Character_plant_1((background.position[0]+50, background.position[1]+187), background)
+            else:
+                character = Character_1((background.position[0]+50, background.position[1]+187), background)
             my_image_.paste(character.shape, (50, 187))
             joystick.disp.image(my_image_)
             

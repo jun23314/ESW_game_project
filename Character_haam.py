@@ -12,13 +12,13 @@ class Character_haam:
         self.center = np.array([position[0]+15, position[1]+15])
         
 
-    def collision_check(self, character, enemys):
+    def collision_check(self, character, enemys, character_):
         for enemy in enemys:
             collision = self.overlap(character.attack, enemy.attack)
             if collision:
                 if enemy.state == 'live':
                     enemy.state == 'dead'
-                    character.state = 'eat'
+                    character_.state = 'eat'
 
     def overlap(self, enemys_position, my_position):
         return my_position[2] >= enemys_position[0] >= my_position[0] and my_position[2] >= enemys_position[2] >= my_position[0]
