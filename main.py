@@ -45,7 +45,7 @@ def main():
             command['right'] = True
             command['move'] = True
             
-        background.move(command, isJump)
+        background.move(command)
         if command['move']==True and command['right']==True:
             my_image_ = background.shape.crop((background.position[0], background.position[1], background.position[0]+240, background.position[1]+240))
             character = Character_2((background.position[0]+120, background.position[1]+180), background)
@@ -85,11 +85,13 @@ def main():
         if command['move'] == True and command['up'] == True:
             isJump = 0
             for _ in range(0, 16):
+                background.jump(isJump)
                 my_image_ = background.shape.crop((background.position[0], background.position[1], background.position[0]+240, background.position[1]+240))
                 character = Character_1((background.position[0]+120, background.position[1]+180), background)
                 my_image_.paste(character.shape, (120, 180))
             isJump = 15
             for _ in range(0, 16):
+                background.jump(isJump)
                 my_image_ = background.shape.crop((background.position[0], background.position[1], background.position[0]+240, background.position[1]+240))
                 character = Character_1((background.position[0]+120, background.position[1]+180), background)
                 my_image_.paste(character.shape, (120, 180))
