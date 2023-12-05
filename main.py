@@ -80,7 +80,7 @@ def main():
             if enemy == plant:
                 if enemy.state == 'dead':
                     enemy.death(newBackground.shape)
-                    background.shape.paste(enemy.shape_, (enemy.position[0], enemy.position[1]))
+                    background.shape.paste(enemy.shape_, (enemy.position[0] + 30, enemy.position[1] + 30))
 
                     
 
