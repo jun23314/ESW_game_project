@@ -2,13 +2,14 @@ import numpy as np
 from PIL import Image
 
 class Bullet:
-    def __init__(self, background, character):
-        background = background.crop((85, 75, 165, 155))
+    def __init__(self, background, character, position):
+        background = background.shape.crop((position[0], position[1], position[0]+5, position[1]+5))
         self.shape = Image.open("bullet.png").convert('RGBA')
         self.shape = Image.alpha_composite(background, self.shape)
         self.attack = np.array([character.center[0] , character.center[1] , character.center[0] + 60, character.center[1]])
         self.damage = 3
         self.position = character.position
+        
         
     def move(self):
         self.position[0] += 5

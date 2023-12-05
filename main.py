@@ -24,7 +24,7 @@ def main():
     
     plant = Enemy_1((100, 543), background.shape)
     background.shape.paste(plant.shape, plant.position)
-    tree = Enemy_2((170, 543), background.shape)
+    tree = Enemy_2((170, 443), background.shape)
     background.shape.paste(tree.shape, tree.position)
     
     character_ = Character_1((background.position[0]+50, background.position[1]+187), background)
@@ -79,7 +79,7 @@ def main():
             my_image_.paste(bullet.shape, (85, 75))
             joystick.disp.image(my_image_)
             bullet.collision_check_long(character_, enemys)
-            
+
             my_image_ = background.shape.crop((background.position[0], background.position[1], background.position[0]+240, background.position[1]+240))
             my_image_.paste(character.shape, (90, 130))
             joystick.disp.image(my_image_)
