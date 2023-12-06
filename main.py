@@ -55,6 +55,7 @@ def main():
     joystick.disp.image(start_)
 
     while True:
+        print("i")
         command = {'move': False, 'up': False , 'down': False, 'left': False, 'right': False, 'attack': False, 'haam': False}
         
         # move
