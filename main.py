@@ -152,6 +152,7 @@ def main():
         
         if command['up'] == True and command['move'] == True:
             isJump = True
+            i = 1
             
                 
                
