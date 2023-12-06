@@ -94,9 +94,9 @@ def main():
             after = bullet.shot
             
             bullet.death(newBackground.shape)
-            background.shape.paste(bullet.shape_, (90, 132))
+            background.shape.paste(bullet.shape_, (93, 182))
             my_image_ = background.shape.crop((background.position[0], background.position[1], background.position[0]+240, background.position[1]+240))
-            my_image_.paste(character.shape, (90, 130))
+            my_image_.paste(character.shape, (93, 182))
             joystick.disp.image(my_image_)
             
             
