@@ -88,12 +88,12 @@ def main():
         if not joystick.button_Six.value:
             bullet = Bullet(my_image_, character_)
             before = bullet.shot
-            my_image_.paste(bullet.shape, (63, 170))
+            my_image_.paste(bullet.shape, (81, 152))
             joystick.disp.image(my_image_)
             bullet.collision_check_long(enemys)
             after = bullet.shot
             my_image_ = background.shape.crop((background.position[0], background.position[1], background.position[0]+240, background.position[1]+240))
-            my_image_.paste(character.shape, (63, 170))
+            my_image_.paste(character.shape, (81, 152))
             joystick.disp.image(my_image_)
             if before != after:
                 bullet.shot = False
@@ -101,12 +101,12 @@ def main():
             
             bullet = Bullet_2(my_image_, character_)
             before = bullet.shot
-            my_image_.paste(bullet.shape, (66, 170))
+            my_image_.paste(bullet.shape, (84, 152))
             joystick.disp.image(my_image_)
             bullet.collision_check_long(enemys)
             after = bullet.shot
             my_image_ = background.shape.crop((background.position[0], background.position[1], background.position[0]+240, background.position[1]+240))
-            my_image_.paste(character.shape, (66, 170))
+            my_image_.paste(character.shape, (84, 152))
             joystick.disp.image(my_image_)
             if before != after:
                 bullet.shot = False
@@ -114,12 +114,12 @@ def main():
             
             bullet = Bullet_3(my_image_, character_)
             before = bullet.shot
-            my_image_.paste(bullet.shape, (69, 170))
+            my_image_.paste(bullet.shape, (87, 152))
             joystick.disp.image(my_image_)
             bullet.collision_check_long(enemys)
             after = bullet.shot
             my_image_ = background.shape.crop((background.position[0], background.position[1], background.position[0]+240, background.position[1]+240))
-            my_image_.paste(character.shape, (69, 170))
+            my_image_.paste(character.shape, (87, 152))
             joystick.disp.image(my_image_)
             if before != after:
                 bullet.shot = False
@@ -127,12 +127,12 @@ def main():
             
             bullet = Bullet_4(my_image_, character_)
             before = bullet.shot
-            my_image_.paste(bullet.shape, (72, 170))
+            my_image_.paste(bullet.shape, (90, 152))
             joystick.disp.image(my_image_)
             bullet.collision_check_long(enemys)
             after = bullet.shot
             my_image_ = background.shape.crop((background.position[0], background.position[1], background.position[0]+240, background.position[1]+240))
-            my_image_.paste(character.shape, (72, 170))
+            my_image_.paste(character.shape, (90, 152))
             joystick.disp.image(my_image_)
             if before != after:
                 bullet.shot = False
@@ -140,12 +140,12 @@ def main():
             
             bullet = Bullet_5(my_image_, character_)
             before = bullet.shot
-            my_image_.paste(bullet.shape, (75, 170))
+            my_image_.paste(bullet.shape, (93, 152))
             joystick.disp.image(my_image_)
             bullet.collision_check_long(enemys)
             after = bullet.shot
             my_image_ = background.shape.crop((background.position[0], background.position[1], background.position[0]+240, background.position[1]+240))
-            my_image_.paste(character.shape, (75, 170))
+            my_image_.paste(character.shape, (93, 152))
             joystick.disp.image(my_image_)
             if before != after:
                 bullet.shot = False
