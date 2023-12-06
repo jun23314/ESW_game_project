@@ -7,7 +7,7 @@ class Enemy_2:
         self.shape = Image.open("tree.png").convert('RGBA')
         self.shape = Image.alpha_composite(background, self.shape)
         self.attack = np.array([position[0]+10, position[1], position[0] + 60, position[1] + 70])
-        self.touch = 5
+        self.touch = 1
         self.state = 'live'
         self.life = 12
         self.position = position
