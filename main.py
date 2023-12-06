@@ -87,9 +87,9 @@ def main():
             if enemy == plant:
                 if enemy.state == 'dead':
                     enemy.death(newBackground.shape)
-                    background.shape.paste(my_image_, (enemy.position[0], enemy.position[1]))
+                    background.shape.paste(enemy.shape_, (enemy.position[0], enemy.position[1]))
                     #my_image_ = background.shape.crop((background.position[0], background.position[1], background.position[0]+240, background.position[1]+240))
-                    joystick.disp.image(background)
+                    joystick.disp.image(newBackground)
                     
 
                     
