@@ -25,6 +25,7 @@ from Character_haam_plant_left import Character_haam_plant_left
 from Character_down import Character_down
 from Character_down_left import Character_down_left
 from Character_flower import Character_flower
+from Character_hurt import Character_hurt
 from Enemy_1 import Enemy_1
 from Enemy_2 import Enemy_2
 from Enemy_flower import Enemy_flower
@@ -143,6 +144,8 @@ def main():
             joystick.disp.image(my_image_)
         
         
+        character_.collision_check(character_, enemys, character)
+        
         for enemy in enemys:
             if enemy.state == 'dead':
                 enemy.death(newBackground.shape)
@@ -186,6 +189,19 @@ def main():
                 character = Character_plant_1((background.position[0]+50, background.position[1]+187), background)
                 my_image_.paste(character.shape, (50, 187))
                 joystick.disp.image(my_image_)
+                before = character_.life
+                character_.collision_check(character, enemy, character_)
+                after = character_.life
+                if before != after:
+                    for _ in range(0, (5 - character_.life)):
+                        my_image_ = background.shape.crop((background.position[0], background.position[1], background.position[0]+240, background.position[1]+240))
+                        character = Character_hurt((background.position[0]+50, background.position[1]+187), background)
+                        my_image_.paste(character.shape, (50, 187))
+                        joystick.disp.image(my_image_)
+                        my_image_ = background.shape.crop((background.position[0], background.position[1], background.position[0]+240, background.position[1]+240))
+                        character = Character_plant_1((background.position[0]+50, background.position[1]+187), background)
+                        my_image_.paste(character.shape, (50, 187))
+                        joystick.disp.image(my_image_)
             else:
                 my_image_ = background.shape.crop((background.position[0], background.position[1], background.position[0]+240, background.position[1]+240))
                 character = Character_2((background.position[0]+50, background.position[1]+187), background)
@@ -203,6 +219,24 @@ def main():
                 character = Character_1((background.position[0]+50, background.position[1]+187), background)
                 my_image_.paste(character.shape, (50, 187))
                 joystick.disp.image(my_image_)
+                before = character_.life
+                character_.collision_check(character, enemy, character_)
+                after = character_.life
+                if before != after:
+                    for _ in range(0, (5 - character_.life)):
+                        my_image_ = background.shape.crop((background.position[0], background.position[1], background.position[0]+240, background.position[1]+240))
+                        character = Character_hurt((background.position[0]+50, background.position[1]+187), background)
+                        my_image_.paste(character.shape, (50, 187))
+                        joystick.disp.image(my_image_)
+                        my_image_ = background.shape.crop((background.position[0], background.position[1], background.position[0]+240, background.position[1]+240))
+                        character = Character_1((background.position[0]+50, background.position[1]+187), background)
+                        my_image_.paste(character.shape, (50, 187))
+                        joystick.disp.image(my_image_)
+            
+            if character_.life <= 0:
+                my_image_ = Image.open('gameover.png')
+                joystick.disp.image(my_image_)
+                exit(0)
                 
             
         if command['move']==True and command['left']==True:
@@ -225,6 +259,19 @@ def main():
                     character = Character_plant_Left_1((background.position[0]+50, background.position[1]+187), background)
                     my_image_.paste(character.shape, (50, 187))
                     joystick.disp.image(my_image_)
+                    before = character_.life
+                    character_.collision_check(character, enemy, character_)
+                    after = character_.life
+                    if before != after:
+                        for _ in range(0, (5 - character_.life)):
+                            my_image_ = background.shape.crop((background.position[0], background.position[1], background.position[0]+240, background.position[1]+240))
+                            character = Character_hurt((background.position[0]+50, background.position[1]+187), background)
+                            my_image_.paste(character.shape, (50, 187))
+                            joystick.disp.image(my_image_)
+                            my_image_ = background.shape.crop((background.position[0], background.position[1], background.position[0]+240, background.position[1]+240))
+                            character = Character_plant_Left_1((background.position[0]+50, background.position[1]+187), background)
+                            my_image_.paste(character.shape, (50, 187))
+                            joystick.disp.image(my_image_)
             else:
                 my_image_ = background.shape.crop((background.position[0], background.position[1], background.position[0]+240, background.position[1]+240))
                 character = Character_Left_2((background.position[0]+50, background.position[1]+187), background)
@@ -242,13 +289,26 @@ def main():
                 character = Character_Left_1((background.position[0]+50, background.position[1]+187), background)
                 my_image_.paste(character.shape, (50, 187))
                 joystick.disp.image(my_image_)
+                before = character_.life
+                character_.collision_check(character, enemy, character_)
+                after = character_.life
+                if before != after:
+                    for _ in range(0, (5 - character_.life)):
+                        my_image_ = background.shape.crop((background.position[0], background.position[1], background.position[0]+240, background.position[1]+240))
+                        character = Character_hurt((background.position[0]+50, background.position[1]+187), background)
+                        my_image_.paste(character.shape, (50, 187))
+                        joystick.disp.image(my_image_)
+                        my_image_ = background.shape.crop((background.position[0], background.position[1], background.position[0]+240, background.position[1]+240))
+                        character = Character_Left_1((background.position[0]+50, background.position[1]+187), background)
+                        my_image_.paste(character.shape, (50, 187))
+                        joystick.disp.image(my_image_)
         
         if isJump == True and i == 0:
             background.jump_down()
             my_image_ = background.shape.crop((background.position[0], background.position[1], background.position[0]+240, background.position[1]+240))
             character = Character_1((background.position[0]+50, background.position[1]+187), background)
             my_image_.paste(character.shape, (50, 187))
-            joystick.disp.image(my_image_)
+            joystick.disp.image(my_image
             isJump = False
             flag = True
         
