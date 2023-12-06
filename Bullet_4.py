@@ -1,9 +1,9 @@
 import numpy as np
 from PIL import Image
 
-class Bullet:
+class Bullet_4:
     def __init__(self,background, character):
-        background = background.crop((63, 170, 68, 175))
+        background = background.crop((72, 170, 77, 175))
         self.shape = Image.open('bullet.png').convert('RGBA')
         self.shape = Image.alpha_composite(background, self.shape)
         self.attack = np.array([background[0]-3 , background[1] , background[2], background[3]])
@@ -19,7 +19,7 @@ class Bullet:
                 if enemy.state == 'live':
                     self.shot = True
                     enemy.life -= self.touch
-                    print("hurt..1")
+                    print("hurt..4")
                     break
 
     def overlap(self, ego_position, other_position):

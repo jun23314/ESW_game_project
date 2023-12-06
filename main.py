@@ -28,9 +28,14 @@ from Character_flower import Character_flower
 from Character_hurt import Character_hurt
 from Enemy_1 import Enemy_1
 from Enemy_2 import Enemy_2
+from Enemy_box import Enemy_box
 from Enemy_flower import Enemy_flower
 from Enemy_boss import Enemy_boss
 from Bullet import Bullet
+from Bullet_2 import Bullet_2
+from Bullet_3 import Bullet_3
+from Bullet_4 import Bullet_4
+from Bullet_5 import Bullet_5
 from Joystick import Joystick
 from BackGround import BackGround
 
@@ -43,7 +48,8 @@ def main():
     flag = True # if true : up, false : down
     i = 0
     
-    
+    box = Enemy_box((100, 503), background.shape)
+    background.shape.paste(box.shape, box.position)
     plant = Enemy_1((200, 543), background.shape)
     background.shape.paste(plant.shape, plant.position)
     tree = Enemy_2((250, 503), background.shape)
@@ -57,7 +63,7 @@ def main():
     my_image_ = background.shape.crop((background.position[0],background.position[1], background.position[0]+240, background.position[1]+240))
     my_image_.paste(character_.shape, (50, 187))
     
-    enemys = [plant, flower, tree, boss]
+    enemys = [box, plant, flower, tree, boss]
     
     joystick.disp.image(start_)
 
@@ -75,9 +81,75 @@ def main():
             command['move'] = True
             character_.direction = 'right'
             
-        if not joystick.button_Six.value: 
+        if not joystick.button_Five.value: 
             command['up'] = True
             command['move'] = True
+            
+        if not joystick.button_Six.value:
+            bullet = Bullet(my_image_, character_)
+            before = bullet.shot
+            my_image_.paste(bullet.shape, (63, 170))
+            joystick.disp.image(my_image_)
+            bullet.collision_check_long(character_, enemys)
+            after = bullet.shot
+            my_image_ = background.shape.crop((background.position[0], background.position[1], background.position[0]+240, background.position[1]+240))
+            my_image_.paste(character.shape, (63, 170))
+            joystick.disp.image(my_image_)
+            if before != after:
+                bullet.shot = False
+                continue
+            
+            bullet = Bullet_2(my_image_, character_)
+            before = bullet.shot
+            my_image_.paste(bullet.shape, (66, 170))
+            joystick.disp.image(my_image_)
+            bullet.collision_check_long(character_, enemys)
+            after = bullet.shot
+            my_image_ = background.shape.crop((background.position[0], background.position[1], background.position[0]+240, background.position[1]+240))
+            my_image_.paste(character.shape, (66, 170))
+            joystick.disp.image(my_image_)
+            if before != after:
+                bullet.shot = False
+                continue
+            
+            bullet = Bullet_3(my_image_, character_)
+            before = bullet.shot
+            my_image_.paste(bullet.shape, (69, 170))
+            joystick.disp.image(my_image_)
+            bullet.collision_check_long(character_, enemys)
+            after = bullet.shot
+            my_image_ = background.shape.crop((background.position[0], background.position[1], background.position[0]+240, background.position[1]+240))
+            my_image_.paste(character.shape, (69, 170))
+            joystick.disp.image(my_image_)
+            if before != after:
+                bullet.shot = False
+                continue
+            
+            bullet = Bullet_4(my_image_, character_)
+            before = bullet.shot
+            my_image_.paste(bullet.shape, (72, 170))
+            joystick.disp.image(my_image_)
+            bullet.collision_check_long(character_, enemys)
+            after = bullet.shot
+            my_image_ = background.shape.crop((background.position[0], background.position[1], background.position[0]+240, background.position[1]+240))
+            my_image_.paste(character.shape, (72, 170))
+            joystick.disp.image(my_image_)
+            if before != after:
+                bullet.shot = False
+                continue
+            
+            bullet = Bullet_5(my_image_, character_)
+            before = bullet.shot
+            my_image_.paste(bullet.shape, (75, 170))
+            joystick.disp.image(my_image_)
+            bullet.collision_check_long(character_, enemys)
+            after = bullet.shot
+            my_image_ = background.shape.crop((background.position[0], background.position[1], background.position[0]+240, background.position[1]+240))
+            my_image_.paste(character.shape, (75, 170))
+            joystick.disp.image(my_image_)
+            if before != after:
+                bullet.shot = False
+                continue            
             
         # spit it out    
         if not joystick.button_Down.value:
@@ -105,7 +177,7 @@ def main():
                     joystick.disp.image(my_image_)
             
         # eat    
-        if not joystick.button_Five.value:
+        if not joystick.button_Up.value:
             if character_.state == 'flower':
                 continue
             elif character_.state == 'plant':
@@ -123,7 +195,6 @@ def main():
             joystick.disp.image(my_image_)
             
             for enemy in enemys:
-                
                 collision = character.overlap(character.attack, enemy.attack)
                 if collision:
                     if enemy.state == 'live':
@@ -131,6 +202,8 @@ def main():
                         if enemy == flower:
                             character_.state = 'flower'
                         elif enemy == plant:
+                            character_.state = 'plant'
+                        elif enemy == box:
                             character_.state = 'plant'
                 
             time.sleep(1)
@@ -166,9 +239,7 @@ def main():
             character = Character_1((background.position[0]+50, background.position[1]+187), background)
             my_image_.paste(character.shape, (50, 187))
             joystick.disp.image(my_image_)
-            i = 1
-            
-                
+            i = 1      
                
         if command['move']==True and command['right']==True:
             if character_.state == 'flower':
