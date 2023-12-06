@@ -8,7 +8,7 @@ class Enemy_flower:
         self.shape = Image.alpha_composite(background, self.shape)
         self.attack = np.array([position[0]+10, position[1], position[0] + 20, position[1] + 15])
         self.state = 'live'
-        self.touch = 1
+        self.touch = 0
         self.life = 1
         self.position = position
 

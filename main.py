@@ -50,7 +50,7 @@ def main():
     background.shape.paste(tree.shape, tree.position)
     flower = Enemy_flower((150, 543), background.shape)
     background.shape.paste(flower.shape, flower.position)
-    boss = Enemy_boss((400, 403), background.shape)
+    boss = Enemy_boss((350, 403), background.shape)
     background.shape.paste(boss.shape, boss.position)
 
     character_ = Character_1((background.position[0]+50, background.position[1]+187), background)
@@ -123,6 +123,7 @@ def main():
             joystick.disp.image(my_image_)
             
             for enemy in enemys:
+                
                 collision = character.overlap(character.attack, enemy.attack)
                 print(collision)
                 if collision:
@@ -333,6 +334,16 @@ def main():
                 my_image_.paste(character.shape, (50, 187))
                 joystick.disp.image(my_image_)
                 i -= 1
+        
+        check = 0        
+        for enemy in enemys:
+            if enemy.state == 'dead':
+                check += 1
+                
+        if check == 4:
+            my_image_ = Image.open('clear.png')
+            joystick.disp.image(my_image_)
+            exit(0)
                 
     joystick.disp.image(my_image_)
         
