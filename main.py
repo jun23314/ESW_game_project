@@ -91,8 +91,8 @@ def main():
             my_image_.paste(bullet.shape, (93, 182))
             joystick.disp.image(my_image_)
             bullet.collision_check_long(enemys)
+            print(bullet.collision_check_long(enemys))
             after = bullet.shot
-            
             bullet.death(newBackground.shape)
             background.shape.paste(bullet.shape_, (93, 182))
             my_image_ = background.shape.crop((background.position[0], background.position[1], background.position[0]+240, background.position[1]+240))
