@@ -236,7 +236,7 @@ def main():
             isJump = False
         
         if isJump == True and i == 15:
-            flag == False
+            flag = False
             
         if isJump == True:
             if flag == True:
