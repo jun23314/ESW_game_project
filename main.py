@@ -59,9 +59,9 @@ def main():
     boss = Enemy_boss((300, 403), background.shape)
     background.shape.paste(boss.shape, boss.position)
 
-    character_ = Character_1((background.position[0]+50, background.position[1]+157), background)
+    character_ = Character_1((background.position[0]+50, background.position[1]+167), background)
     my_image_ = background.shape.crop((background.position[0],background.position[1], background.position[0]+240, background.position[1]+240))
-    my_image_.paste(character_.shape, (50, 157))
+    my_image_.paste(character_.shape, (50, 167))
     
     enemys = [box, plant, flower, tree, boss]
     
@@ -277,19 +277,19 @@ def main():
             else:
                 my_image_ = background.shape.crop((background.position[0], background.position[1], background.position[0]+240, background.position[1]+240))
                 character = Character_2((background.position[0]+50, background.position[1]+187), background)
-                my_image_.paste(character.shape, (50, 187))
+                my_image_.paste(character.shape, (50, 167))
                 joystick.disp.image(my_image_)
                 my_image_ = background.shape.crop((background.position[0], background.position[1], background.position[0]+240, background.position[1]+240))
                 character = Character_3((background.position[0]+50, background.position[1]+187), background)
-                my_image_.paste(character.shape, (50, 187))
+                my_image_.paste(character.shape, (50, 167))
                 joystick.disp.image(my_image_)
                 my_image_ = background.shape.crop((background.position[0], background.position[1], background.position[0]+240, background.position[1]+240))
                 character = Character_4((background.position[0]+50, background.position[1]+187), background)
-                my_image_.paste(character.shape, (50, 187))
+                my_image_.paste(character.shape, (50, 167))
                 joystick.disp.image(my_image_)
                 my_image_ = background.shape.crop((background.position[0], background.position[1], background.position[0]+240, background.position[1]+240))
                 character = Character_1((background.position[0]+50, background.position[1]+187), background)
-                my_image_.paste(character.shape, (50, 187))
+                my_image_.paste(character.shape, (50, 167))
                 joystick.disp.image(my_image_)
                 before = character_.life
                 character_.collision_check(character, enemys, character_)
