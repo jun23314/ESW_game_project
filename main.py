@@ -52,7 +52,7 @@ def main():
     background.shape.paste(box.shape, box.position)
     plant = Enemy_1((200, 533), background.shape)
     background.shape.paste(plant.shape, plant.position)
-    tree = Enemy_2((250, 503), background.shape)
+    tree = Enemy_2((250, 473), background.shape)
     background.shape.paste(tree.shape, tree.position)
     flower = Enemy_flower((150, 533), background.shape)
     background.shape.paste(flower.shape, flower.position)
