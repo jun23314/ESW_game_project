@@ -8,7 +8,7 @@ class Character_down:
         self.shape = Image.alpha_composite(background, self.shape)
         self.life = 5
         self.safe = np.array([position[0] , position[1] , position[0] + 30, position[1] + 30])
-        self.attack = np.array([position[0] + 30, position[1] + 30, position[0] + 70, position[1] + 70])
+        self.attack = np.array([position[0], position[1] + 30, position[0] + 50, position[1] + 30])
         self.state = None
         self.direction = 'right'
         self.position = position

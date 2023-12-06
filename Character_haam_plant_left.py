@@ -7,7 +7,7 @@ class Character_haam_plant_left:
         self.shape = Image.open("character_haam_plant_left.png").convert('RGBA')
         self.shape = Image.alpha_composite(background, self.shape)
         self.life = 5
-        self.attack = np.array([position[0] + 30, position[1] + 30, position[0] + 70, position[1] + 70])
+        self.attack = np.array([position[0], position[1] + 30, position[0] + 50, position[1] + 30])
         self.position = position
         self.center = np.array([position[0]+15, position[1]+15])
         
