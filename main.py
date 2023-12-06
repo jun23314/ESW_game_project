@@ -59,9 +59,9 @@ def main():
     boss = Enemy_boss((300, 403), background.shape)
     background.shape.paste(boss.shape, boss.position)
 
-    character_ = Character_1((background.position[0]+50, background.position[1]+177), background)
+    character_ = Character_1((background.position[0]+50, background.position[1]+157), background)
     my_image_ = background.shape.crop((background.position[0],background.position[1], background.position[0]+240, background.position[1]+240))
-    my_image_.paste(character_.shape, (50, 177))
+    my_image_.paste(character_.shape, (50, 157))
     
     enemys = [box, plant, flower, tree, boss]
     
