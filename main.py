@@ -19,6 +19,7 @@ from Character_plant_Left_2 import Character_plant_Left_2
 from Character_plant_Left_3 import Character_plant_Left_3
 from Character_plant_Left_4 import Character_plant_Left_4
 from Character_haam import Character_haam
+from Character_haam_plant import Character_haam_plant
 from Enemy_1 import Enemy_1
 from Enemy_2 import Enemy_2
 from Bullet import Bullet
@@ -63,8 +64,11 @@ def main():
             
             
         if not joystick.button_Five.value:
+            if character_.state == 'eat':
+                character = Character_haam_plant((background.position[0]+50, background.position[1]+187), background)
+            else:
+                character = Character_haam((background.position[0]+50, background.position[1]+187), background)
             my_image_ = background.shape.crop((background.position[0], background.position[1], background.position[0]+240, background.position[1]+240))
-            character = Character_haam((background.position[0]+50, background.position[1]+187), background)
             my_image_.paste(character.shape, (50, 187))
             joystick.disp.image(my_image_)
             character.collision_check(character, enemys, character_)
@@ -83,9 +87,9 @@ def main():
             if enemy == plant:
                 if enemy.state == 'dead':
                     enemy.death(newBackground.shape)
-                    background.shape.paste(enemy.shape_, (enemy.position[0], enemy.position[1]))
-                    my_image_ = background.shape.crop((background.position[0], background.position[1], background.position[0]+240, background.position[1]+240))
-                    joystick.disp.image(my_image_)
+                    background.shape.paste(my_image_, (enemy.position[0], enemy.position[1]))
+                    #my_image_ = background.shape.crop((background.position[0], background.position[1], background.position[0]+240, background.position[1]+240))
+                    joystick.disp.image(background)
                     
 
                     
