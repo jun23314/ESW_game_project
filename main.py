@@ -48,7 +48,7 @@ def main():
     flag = True # if true : up, false : down
     i = 0
     
-    box = Enemy_box((100, 503), background.shape)
+    box = Enemy_box((100, 523), background.shape)
     background.shape.paste(box.shape, box.position)
     plant = Enemy_1((200, 543), background.shape)
     background.shape.paste(plant.shape, plant.position)

@@ -6,7 +6,7 @@ class Bullet:
         background = background.crop((63, 170, 68, 175))
         self.shape = Image.open('bullet.png').convert('RGBA')
         self.shape = Image.alpha_composite(background, self.shape)
-        self.attack = np.array([background[0]-3 , background[1] , background[2], background[3]])
+        self.attack = np.array([60, 170,68, 175])
         self.touch = 3
         self.position = character.position
         self.shot = False
