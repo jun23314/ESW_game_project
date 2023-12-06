@@ -337,7 +337,7 @@ def main():
         check = 0        
         for enemy in enemys:
             print(enemy.state)
-            if enemy.state == 'dead':
+            if enemy.state == 'death':
                 check += 1
                 
         if check == 4:
