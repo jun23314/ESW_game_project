@@ -50,11 +50,11 @@ def main():
     
     box = Enemy_box((100, 533), background.shape)
     background.shape.paste(box.shape, box.position)
-    plant = Enemy_1((200, 543), background.shape)
+    plant = Enemy_1((200, 533), background.shape)
     background.shape.paste(plant.shape, plant.position)
     tree = Enemy_2((250, 503), background.shape)
     background.shape.paste(tree.shape, tree.position)
-    flower = Enemy_flower((150, 543), background.shape)
+    flower = Enemy_flower((150, 533), background.shape)
     background.shape.paste(flower.shape, flower.position)
     boss = Enemy_boss((300, 403), background.shape)
     background.shape.paste(boss.shape, boss.position)
