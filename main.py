@@ -22,6 +22,8 @@ from Character_haam import Character_haam
 from Character_haam_plant import Character_haam_plant
 from Character_haam_left import Character_haam_left
 from Character_haam_plant_left import Character_haam_plant_left
+from Character_down import Character_down
+from Character_down_left import Character_down_left
 from Enemy_1 import Enemy_1
 from Enemy_2 import Enemy_2
 from Bullet import Bullet
@@ -67,10 +69,18 @@ def main():
             character_.state = None
             if character_.direction == 'right':
                 my_image_ = background.shape.crop((background.position[0], background.position[1], background.position[0]+240, background.position[1]+240))
+                character = Character_down((background.position[0]+50, background.position[1]+187), background)
+                my_image_.paste(character.shape, (50, 187))
+                joystick.disp.image(my_image_)
+                my_image_ = background.shape.crop((background.position[0], background.position[1], background.position[0]+240, background.position[1]+240))
                 character = Character_1((background.position[0]+50, background.position[1]+187), background)
                 my_image_.paste(character.shape, (50, 187))
                 joystick.disp.image(my_image_)
             elif character_.direction == 'right':
+                my_image_ = background.shape.crop((background.position[0], background.position[1], background.position[0]+240, background.position[1]+240))
+                character = Character_down_left((background.position[0]+50, background.position[1]+187), background)
+                my_image_.paste(character.shape, (50, 187))
+                joystick.disp.image(my_image_)
                 my_image_ = background.shape.crop((background.position[0], background.position[1], background.position[0]+240, background.position[1]+240))
                 character = Character_Left_1((background.position[0]+50, background.position[1]+187), background)
                 my_image_.paste(character.shape, (50, 187))
