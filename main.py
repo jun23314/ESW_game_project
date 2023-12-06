@@ -64,6 +64,10 @@ def main():
             command['move'] = True
             character_.direction = 'right'
             
+        if not joystick.button_Up.value: 
+            command['up'] = True
+            command['move'] = True
+            
         # spit it out    
         if not joystick.button_Down.value:
             if character_.state == None:
@@ -134,6 +138,7 @@ def main():
         background.move(command) 
         
         if command['up'] == True:
+            print("run")
             for _ in range(0, 15):
                 background.jump()
                 my_image_ = background.shape.crop((background.position[0], background.position[1], background.position[0]+240, background.position[1]+240))
