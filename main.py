@@ -138,14 +138,11 @@ def main():
         
         
         for enemy in enemys:
-            if enemy == plant:
-                if enemy.state == 'dead':
-                    print("enemy")
-                    enemy.death(newBackground.shape)
-                    background.shape.paste(enemy.shape_, (enemy.position[0], enemy.position[1]))
-                    my_image_ = background.shape.crop((background.position[0], background.position[1], background.position[0]+240, background.position[1]+240))
-                    my_image_.paste(character.shape, (50, 187))
-                    joystick.disp.image(my_image_)
+            if enemy.state == 'dead':
+                enemy.death(newBackground.shape)
+                background.shape.paste(enemy.shape_, (enemy.position[0], enemy.position[1]))
+                my_image_ = background.shape.crop((background.position[0], background.position[1], background.position[0]+240, background.position[1]+240))                    my_image_.paste(character.shape, (50, 187))
+                joystick.disp.image(my_image_)
                     
         background.move(command) 
         
