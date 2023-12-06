@@ -3,18 +3,8 @@ from PIL import Image
 
 class Character_1:
     def __init__(self, position, background):
-        self.number = 1
-        self.state = None
         background = background.shape.crop((position[0], position[1], position[0]+30, position[1]+30))
-        if self.number == 1:
-            self.shape = Image.open("character_1.png").convert('RGBA')
-        elif self.number == 2:
-            self.shape = Image.open("character_2.png").convert('RGBA')
-        elif self.number == 3:
-            self.shape = Image.open("character_3.png").convert('RGBA')
-        elif self.number == 4:
-            self.shape = Image.open("character_4.png").convert('RGBA')
-        
+        self.shape = Image.open("character_1.png").convert('RGBA')
         self.shape = Image.alpha_composite(background, self.shape)
         self.life = 5
         self.safe = np.array([position[0] , position[1] , position[0] + 30, position[1] + 30])

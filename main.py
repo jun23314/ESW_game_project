@@ -249,7 +249,7 @@ def main():
             isJump = False
             flag = True
         
-        if isJump == True and i == 15:
+        if isJump == True and i == 30:
             flag = False
             
         if isJump == True:
@@ -269,6 +269,7 @@ def main():
                 my_image_.paste(character.shape, (50, 187))
                 joystick.disp.image(my_image_)
                 i -= 1
+                
     joystick.disp.image(my_image_)
         
         
