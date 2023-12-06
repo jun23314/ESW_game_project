@@ -26,3 +26,8 @@ class BackGround:
         self.list = list(self.position)
         self.list[1] -= 1
         self.position = tuple(self.list)
+        
+    def jump_down(self):
+        self.list = list(self.position)
+        self.list[1] += 1
+        self.position = tuple(self.list)

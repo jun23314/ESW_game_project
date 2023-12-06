@@ -64,7 +64,7 @@ def main():
             command['move'] = True
             character_.direction = 'right'
             
-        if not joystick.button_Up.value: 
+        if not joystick.button_Six.value: 
             command['up'] = True
             command['move'] = True
             
@@ -138,13 +138,64 @@ def main():
         background.move(command) 
         
         if command['up'] == True and command['move'] == True:
-            print("run")
-            for _ in range(0, 15):
-                background.jump()
-                my_image_ = background.shape.crop((background.position[0], background.position[1], background.position[0]+240, background.position[1]+240))
-                character = Character_plant_1((background.position[0]+50, background.position[1]+187), background)
-                my_image_.paste(character.shape, (50, 187))
-                joystick.disp.image(my_image_)
+            if character_.direction == 'right':
+                if character_.state == 'eat':
+                    for _ in range(0, 15):
+                        background.jump()
+                        my_image_ = background.shape.crop((background.position[0], background.position[1], background.position[0]+240, background.position[1]+240))
+                        character = Character_plant_1((background.position[0]+50, background.position[1]+187), background)
+                        my_image_.paste(character.shape, (50, 187))
+                        joystick.disp.image(my_image_)
+                    for _ in range(0, 15):
+                        background.jump_down()
+                        my_image_ = background.shape.crop((background.position[0], background.position[1], background.position[0]+240, background.position[1]+240))
+                        character = Character_plant_1((background.position[0]+50, background.position[1]+187), background)
+                        my_image_.paste(character.shape, (50, 187))
+                        joystick.disp.image(my_image_)
+                        #충돌 체크 코드
+                elif character_.state == None:
+                    for _ in range(0, 15):
+                        background.jump()
+                        my_image_ = background.shape.crop((background.position[0], background.position[1], background.position[0]+240, background.position[1]+240))
+                        character = Character_1((background.position[0]+50, background.position[1]+187), background)
+                        my_image_.paste(character.shape, (50, 187))
+                        joystick.disp.image(my_image_)
+                    for _ in range(0, 15):
+                        background.jump_down()
+                        my_image_ = background.shape.crop((background.position[0], background.position[1], background.position[0]+240, background.position[1]+240))
+                        character = Character_1((background.position[0]+50, background.position[1]+187), background)
+                        my_image_.paste(character.shape, (50, 187))
+                        joystick.disp.image(my_image_)
+                        #충돌 체크 코드
+            elif character_.direction == 'left':
+                if character_.state == 'eat':
+                    for _ in range(0, 15):
+                        background.jump()
+                        my_image_ = background.shape.crop((background.position[0], background.position[1], background.position[0]+240, background.position[1]+240))
+                        character = Character_plant_Left_1((background.position[0]+50, background.position[1]+187), background)
+                        my_image_.paste(character.shape, (50, 187))
+                        joystick.disp.image(my_image_)
+                    for _ in range(0, 15):
+                        background.jump_down()
+                        my_image_ = background.shape.crop((background.position[0], background.position[1], background.position[0]+240, background.position[1]+240))
+                        character = Character_plant_Left_1((background.position[0]+50, background.position[1]+187), background)
+                        my_image_.paste(character.shape, (50, 187))
+                        joystick.disp.image(my_image_)
+                        #충돌 체크 코드
+                elif character_.state == None:
+                    for _ in range(0, 15):
+                        background.jump()
+                        my_image_ = background.shape.crop((background.position[0], background.position[1], background.position[0]+240, background.position[1]+240))
+                        character = Character_Left_1((background.position[0]+50, background.position[1]+187), background)
+                        my_image_.paste(character.shape, (50, 187))
+                        joystick.disp.image(my_image_)
+                    for _ in range(0, 15):
+                        background.jump_down()
+                        my_image_ = background.shape.crop((background.position[0], background.position[1], background.position[0]+240, background.position[1]+240))
+                        character = Character_Left_1((background.position[0]+50, background.position[1]+187), background)
+                        my_image_.paste(character.shape, (50, 187))
+                        joystick.disp.image(my_image_)
+                        #충돌 체크 코드
                 
                
         if command['move']==True and command['right']==True:
