@@ -88,7 +88,7 @@ def main():
         if not joystick.button_Six.value:
             bullet = Bullet_5(my_image_, character_)
             before = bullet.shot
-            my_image_.paste(bullet.shape, (93, 132))
+            my_image_.paste(bullet.shape, (93, 167))
             joystick.disp.image(my_image_)
             bullet.collision_check_long(enemys)
             after = bullet.shot
