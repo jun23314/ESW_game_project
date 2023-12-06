@@ -64,7 +64,7 @@ def main():
             
         # spit it out    
         if not joystick.button_Down.value:
-            character_.state == None
+            character_.state = None
             if character_.direction == 'right':
                 my_image_ = background.shape.crop((background.position[0], background.position[1], background.position[0]+240, background.position[1]+240))
                 character = Character_1((background.position[0]+50, background.position[1]+187), background)
