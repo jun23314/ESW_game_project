@@ -144,7 +144,7 @@ def main():
             joystick.disp.image(my_image_)
         
         
-        character_.collision_check(character_, enemys, character)
+        
         
         for enemy in enemys:
             if enemy.state == 'dead':
