@@ -151,6 +151,8 @@ def main():
         background.move(command) 
         
         if command['up'] == True and command['move'] == True:
+            if isJump == True:
+                continue
             isJump = True
             background.jump()
             my_image_ = background.shape.crop((background.position[0], background.position[1], background.position[0]+240, background.position[1]+240))
@@ -182,22 +184,13 @@ def main():
                 my_image_.paste(character.shape, (50, 187))
                 joystick.disp.image(my_image_)
             else:
-                my_image_ = background.shape.crop((background.position[0], background.position[1], background.position[0]+240, background.position[1]+240))
-                character = Character_2((background.position[0]+50, background.position[1]+187), background)
-                my_image_.paste(character.shape, (50, 187))
-                joystick.disp.image(my_image_)
-                my_image_ = background.shape.crop((background.position[0], background.position[1], background.position[0]+240, background.position[1]+240))
-                character = Character_3((background.position[0]+50, background.position[1]+187), background)
-                my_image_.paste(character.shape, (50, 187))
-                joystick.disp.image(my_image_)
-                my_image_ = background.shape.crop((background.position[0], background.position[1], background.position[0]+240, background.position[1]+240))
-                character = Character_4((background.position[0]+50, background.position[1]+187), background)
-                my_image_.paste(character.shape, (50, 187))
-                joystick.disp.image(my_image_)
-                my_image_ = background.shape.crop((background.position[0], background.position[1], background.position[0]+240, background.position[1]+240))
-                character = Character_1((background.position[0]+50, background.position[1]+187), background)
-                my_image_.paste(character.shape, (50, 187))
-                joystick.disp.image(my_image_)
+                for _ in range(0, 4):
+                    my_image_ = background.shape.crop((background.position[0], background.position[1], background.position[0]+240, background.position[1]+240))
+                    character = Character_1((background.position[0]+50, background.position[1]+187), background)
+                    my_image_.paste(character.shape, (50, 187))
+                    joystick.disp.image(my_image_)
+                    character.number += _
+                
             
         if command['move']==True and command['left']==True:
             if character_.state == 'flower':
