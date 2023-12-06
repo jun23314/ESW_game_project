@@ -57,31 +57,7 @@ def main():
     
     joystick.disp.image(start_)
 
-    while True:
-        if isJump == True and i == 0:
-            isJump = False
-        
-        if isJump == True and i == 15:
-            flag == False
-            
-        if isJump == True:
-            if flag == True:
-                print("up")
-                background.jump()
-                my_image_ = background.shape.crop((background.position[0], background.position[1], background.position[0]+240, background.position[1]+240))
-                character = Character_1((background.position[0]+50, background.position[1]+187), background)
-                my_image_.paste(character.shape, (50, 187))
-                joystick.disp.image(my_image_)
-                i += 1
-            elif flag == False:
-                print("down")
-                background.jump_down()
-                my_image_ = background.shape.crop((background.position[0], background.position[1], background.position[0]+240, background.position[1]+240))
-                character = Character_1((background.position[0]+50, background.position[1]+187), background)
-                my_image_.paste(character.shape, (50, 187))
-                joystick.disp.image(my_image_)
-                i -= 1
-                
+    while True:               
         command = {'move': False, 'up': False , 'down': False, 'left': False, 'right': False, 'attack': False, 'haam': False}
         
         # move
@@ -255,6 +231,29 @@ def main():
                 my_image_.paste(character.shape, (50, 187))
                 joystick.disp.image(my_image_)
         
+        if isJump == True and i == 0:
+            isJump = False
+        
+        if isJump == True and i == 15:
+            flag == False
+            
+        if isJump == True:
+            if flag == True:
+                print("up")
+                background.jump()
+                my_image_ = background.shape.crop((background.position[0], background.position[1], background.position[0]+240, background.position[1]+240))
+                character = Character_1((background.position[0]+50, background.position[1]+187), background)
+                my_image_.paste(character.shape, (50, 187))
+                joystick.disp.image(my_image_)
+                i += 1
+            elif flag == False:
+                print("down")
+                background.jump_down()
+                my_image_ = background.shape.crop((background.position[0], background.position[1], background.position[0]+240, background.position[1]+240))
+                character = Character_1((background.position[0]+50, background.position[1]+187), background)
+                my_image_.paste(character.shape, (50, 187))
+                joystick.disp.image(my_image_)
+                i -= 1
     joystick.disp.image(my_image_)
         
         
