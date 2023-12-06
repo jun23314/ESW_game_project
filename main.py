@@ -24,8 +24,10 @@ from Character_haam_left import Character_haam_left
 from Character_haam_plant_left import Character_haam_plant_left
 from Character_down import Character_down
 from Character_down_left import Character_down_left
+from Character_flower import Character_flower
 from Enemy_1 import Enemy_1
 from Enemy_2 import Enemy_2
+from Enemy_flower import Enemy_flower
 from Bullet import Bullet
 from Joystick import Joystick
 from BackGround import BackGround
@@ -39,14 +41,16 @@ def main():
     
     plant = Enemy_1((100, 543), background.shape)
     background.shape.paste(plant.shape, plant.position)
-    tree = Enemy_2((170, 503), background.shape)
+    tree = Enemy_2((250, 503), background.shape)
     background.shape.paste(tree.shape, tree.position)
-    
+    flower = Enemy_flower((170, 503), background.shape)
+    background.shape.paste(tree.shape, tree.position)
+
     character_ = Character_1((background.position[0]+50, background.position[1]+187), background)
     my_image_ = background.shape.crop((background.position[0],background.position[1], background.position[0]+240, background.position[1]+240))
     my_image_.paste(character_.shape, (50, 187))
     
-    enemys = [plant, tree]
+    enemys = [plant, flower, tree]
     
     joystick.disp.image(start_)
 
@@ -95,7 +99,9 @@ def main():
             
         # eat    
         if not joystick.button_Five.value:
-            if character_.state == 'eat':
+            if character_.state == 'flower':
+                continue
+            elif character_.state == 'plant':
                 if character_.direction == 'left':
                     character = Character_haam_plant_left((background.position[0]+50, background.position[1]+187), background)
                 elif character_.direction == 'right':
@@ -108,18 +114,28 @@ def main():
             my_image_ = background.shape.crop((background.position[0], background.position[1], background.position[0]+240, background.position[1]+240))
             my_image_.paste(character.shape, (50, 187))
             joystick.disp.image(my_image_)
-            character.collision_check(character, enemys, character_)
-            print(enemy.state)
+            
+            for enemy in enemys:
+                collision = character.overlap(character.attack, enemy.attack)
+                if collision:
+                    if enemy.state == 'live':
+                        enemy.state = 'dead'
+                        if enemy == flower:
+                            character_.state = 'flower'
+                        elif enemy == plant:
+                            character_.state = 'plant'
+                
             time.sleep(2)
             my_image_ = background.shape.crop((background.position[0], background.position[1], background.position[0]+240, background.position[1]+240))
-            if character_.state == 'eat':
+            if character_.state == 'plant':
                 character = Character_plant_1((background.position[0]+50, background.position[1]+187), background)
-            else:
+            elif character_.state == 'flower':
+                character = Character_flower((background.position[0]+50, background.position[1]+187), background)
+            elif character_.state == None:
                 character = Character_1((background.position[0]+50, background.position[1]+187), background)
             my_image_.paste(character.shape, (50, 187))
             joystick.disp.image(my_image_)
-            
-            
+        
         
         for enemy in enemys:
             if enemy == plant:
@@ -129,17 +145,13 @@ def main():
                     background.shape.paste(enemy.shape_, (enemy.position[0], enemy.position[1]))
                     my_image_ = background.shape.crop((background.position[0], background.position[1], background.position[0]+240, background.position[1]+240))
                     my_image_.paste(character.shape, (50, 187))
-                    
                     joystick.disp.image(my_image_)
                     
-
-                    
-
         background.move(command) 
         
         if command['up'] == True and command['move'] == True:
             if character_.direction == 'right':
-                if character_.state == 'eat':
+                if character_.state == 'plant':
                     for _ in range(0, 15):
                         background.jump()
                         my_image_ = background.shape.crop((background.position[0], background.position[1], background.position[0]+240, background.position[1]+240))
@@ -168,7 +180,7 @@ def main():
                         joystick.disp.image(my_image_)
                         #충돌 체크 코드
             elif character_.direction == 'left':
-                if character_.state == 'eat':
+                if character_.state == 'plant':
                     for _ in range(0, 15):
                         background.jump()
                         my_image_ = background.shape.crop((background.position[0], background.position[1], background.position[0]+240, background.position[1]+240))
@@ -199,7 +211,9 @@ def main():
                 
                
         if command['move']==True and command['right']==True:
-            if character_.state == 'eat':
+            if character_.state == 'flower':
+                continue
+            elif character_.state == 'plant':
                 my_image_ = background.shape.crop((background.position[0], background.position[1], background.position[0]+240, background.position[1]+240))
                 character = Character_plant_2((background.position[0]+50, background.position[1]+187), background)
                 my_image_.paste(character.shape, (50, 187))
@@ -235,7 +249,9 @@ def main():
                 joystick.disp.image(my_image_)
             
         if command['move']==True and command['left']==True:
-            if character_.state == 'eat':
+            if character_.state == 'flower':
+                continue
+            elif character_.state == 'plant':
                     my_image_ = background.shape.crop((background.position[0], background.position[1], background.position[0]+240, background.position[1]+240))
                     character = Character_plant_Left_2((background.position[0]+50, background.position[1]+187), background)
                     my_image_.paste(character.shape, (50, 187))
