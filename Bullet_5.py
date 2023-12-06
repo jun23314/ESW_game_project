@@ -3,7 +3,7 @@ from PIL import Image
 
 class Bullet_5:
     def __init__(self,background, character):
-        background = background.crop((93, 152, 98, 157))
+        background = background.crop((93, 182, 98, 187))
         self.shape = Image.open('bullet.png').convert('RGBA')
         self.shape = Image.alpha_composite(background, self.shape)
         self.attack = np.array([90, 152, 98, 157])
@@ -26,7 +26,7 @@ class Bullet_5:
     
     def death(self, background):
         self.state = 'death'
-        self.shape_ = background.crop((90, 152, 98, 157))
+        self.shape_ = background.crop((90, 182, 98, 187))
                 
                 
                 
