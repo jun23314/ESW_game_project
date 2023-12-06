@@ -140,7 +140,6 @@ def main():
         if command['up'] == True and command['move'] == True:
             print("run")
             for _ in range(0, 15):
-                print(_)
                 background.jump()
                 my_image_ = background.shape.crop((background.position[0], background.position[1], background.position[0]+240, background.position[1]+240))
                 character = Character_plant_1((background.position[0]+50, background.position[1]+187), background)
