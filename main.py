@@ -124,6 +124,7 @@ def main():
             
             for enemy in enemys:
                 collision = character.overlap(character.attack, enemy.attack)
+                print(collision)
                 if collision:
                     if enemy.state == 'live':
                         enemy.state = 'dead'
