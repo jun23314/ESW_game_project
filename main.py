@@ -93,8 +93,8 @@ def main():
             bullet.collision_check_long(enemys)
             after = bullet.shot
             
-            image = background.shape.crop((93, 182, 98, 187))
-            my_image_.paste(image.shape, (93, 182))
+            newBackground = background.shape.crop((93, 182, 98, 187))
+            my_image_.paste(newBackground.shape, (93, 182))
             joystick.disp.image(my_image_)
             if before != after:
                 bullet.shot = False
