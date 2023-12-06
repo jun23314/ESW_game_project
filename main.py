@@ -65,7 +65,7 @@ def main():
     
     enemys = [box, plant, flower, tree, boss]
     
-    #joystick.disp.image(start_)
+    joystick.disp.image(start_)
 
     while True:               
         command = {'move': False, 'up': False , 'down': False, 'left': False, 'right': False, 'attack': False, 'haam': False}
@@ -225,7 +225,7 @@ def main():
                 enemy.death(newBackground.shape)
                 background.shape.paste(enemy.shape_, (enemy.position[0], enemy.position[1]))
                 my_image_ = background.shape.crop((background.position[0], background.position[1], background.position[0]+240, background.position[1]+240))                    
-                my_image_.paste(character.shape, (50, 187))
+                my_image_.paste(character.shape, (50, 167))
                 joystick.disp.image(my_image_)
                     
         background.move(command) 
