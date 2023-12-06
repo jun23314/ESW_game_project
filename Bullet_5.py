@@ -3,10 +3,10 @@ from PIL import Image
 
 class Bullet_5:
     def __init__(self,background, character):
-        background = background.crop((93, 152, 97, 157))
+        background = background.crop((93, 152, 98, 157))
         self.shape = Image.open('bullet.png').convert('RGBA')
         self.shape = Image.alpha_composite(background, self.shape)
-        self.attack = np.array([90, 152, 97, 157])
+        self.attack = np.array([90, 152, 98, 157])
         self.touch = 3
         self.position = character.position
         self.shot = False
