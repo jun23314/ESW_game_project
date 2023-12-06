@@ -131,7 +131,17 @@ def main():
 
                     
 
-        background.move(command)        
+        background.move(command) 
+        
+        if command['up'] == True:
+            for _ in range(0, 15):
+                background.jump()
+                my_image_ = background.shape.crop((background.position[0], background.position[1], background.position[0]+240, background.position[1]+240))
+                character = Character_plant_1((background.position[0]+50, background.position[1]+187), background)
+                my_image_.paste(character.shape, (50, 187))
+                joystick.disp.image(my_image_)
+                
+               
         if command['move']==True and command['right']==True:
             if character_.state == 'eat':
                 my_image_ = background.shape.crop((background.position[0], background.position[1], background.position[0]+240, background.position[1]+240))
