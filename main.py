@@ -72,6 +72,7 @@ def main():
             my_image_.paste(character.shape, (50, 187))
             joystick.disp.image(my_image_)
             character.collision_check(character, enemys, character_)
+            print(enemy.state)
             time.sleep(2)
             my_image_ = background.shape.crop((background.position[0], background.position[1], background.position[0]+240, background.position[1]+240))
             if character_.state == 'eat':
