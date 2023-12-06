@@ -44,8 +44,8 @@ def main():
     i = 0
     
     
-    plant = Enemy_1((200, 543), background.shape)
-    background.shape.paste(plant.shape, plant.position)
+    #plant = Enemy_1((200, 543), background.shape)
+    #background.shape.paste(plant.shape, plant.position)
     tree = Enemy_2((250, 503), background.shape)
     background.shape.paste(tree.shape, tree.position)
     flower = Enemy_flower((170, 543), background.shape)
@@ -57,7 +57,7 @@ def main():
     my_image_ = background.shape.crop((background.position[0],background.position[1], background.position[0]+240, background.position[1]+240))
     my_image_.paste(character_.shape, (50, 187))
     
-    enemys = [plant, flower, tree, boss]
+    enemys = [flower, tree, boss]
     
     joystick.disp.image(start_)
 
