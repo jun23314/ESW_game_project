@@ -152,6 +152,11 @@ def main():
         
         if command['up'] == True and command['move'] == True:
             isJump = True
+            background.jump()
+            my_image_ = background.shape.crop((background.position[0], background.position[1], background.position[0]+240, background.position[1]+240))
+            character = Character_1((background.position[0]+50, background.position[1]+187), background)
+            my_image_.paste(character.shape, (50, 187))
+            joystick.disp.image(my_image_)
             i = 1
             
                 
