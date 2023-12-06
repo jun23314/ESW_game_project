@@ -50,13 +50,14 @@ def main():
     
     box = Enemy_box((100, 523), background.shape)
     background.shape.paste(box.shape, box.position)
-    plant = Enemy_1((200, 533), background.shape)
+    plant = Enemy_1((200, 523), background.shape)
     background.shape.paste(plant.shape, plant.position)
-    tree = Enemy_2((250, 493), background.shape)
-    background.shape.paste(tree.shape, tree.position)
-    flower = Enemy_flower((150, 533), background.shape)
+    flower = Enemy_flower((150, 523), background.shape)
     background.shape.paste(flower.shape, flower.position)
     boss = Enemy_boss((300, 403), background.shape)
+    tree = Enemy_2((250, 493), background.shape)
+    background.shape.paste(tree.shape, tree.position)
+    
     background.shape.paste(boss.shape, boss.position)
 
     character_ = Character_1((background.position[0]+50, background.position[1]+167), background)
