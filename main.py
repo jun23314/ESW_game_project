@@ -37,6 +37,7 @@ def main():
     background = BackGround()
     newBackground = BackGround()
     start_ = Image.open('start.png')
+    isJump = 0
     
     
     plant = Enemy_1((100, 543), background.shape)
@@ -55,7 +56,7 @@ def main():
     joystick.disp.image(start_)
 
     while True:
-        print("i")
+        
         command = {'move': False, 'up': False , 'down': False, 'left': False, 'right': False, 'attack': False, 'haam': False}
         
         # move
