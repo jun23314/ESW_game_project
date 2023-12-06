@@ -22,7 +22,7 @@ class Bullet_5:
                     break
 
     def overlap(self, ego_position, other_position):
-        return (ego_position[2] >= other_position[0] >= ego_position[0] or ego_position[2]>=other_position[2] >= ego_position[0]) and (ego_position[1] <= other_position[1] <= ego_position[3] or ego_position[1] <= other_position[3] <= ego_position[3])
+        return (ego_position[2] >= other_position[0] >= ego_position[0] or ego_position[2]>=other_position[2] >= ego_position[0]) 
     
     def death(self, background):
         self.state = 'death'
