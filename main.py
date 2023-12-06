@@ -37,7 +37,9 @@ def main():
     background = BackGround()
     newBackground = BackGround()
     start_ = Image.open('start.png')
-    isJump = 0
+    isJump = False
+    flag = True # if true : up, false : down
+    i = 0
     
     
     plant = Enemy_1((100, 543), background.shape)
@@ -56,7 +58,28 @@ def main():
     joystick.disp.image(start_)
 
     while True:
+        if isJump == True and i == 0:
+            isJump = False
         
+        if isJump == True and i == 15:
+            flag == False
+            
+        if isJump == True:
+            if flag == True:
+                background.jump()
+                my_image_ = background.shape.crop((background.position[0], background.position[1], background.position[0]+240, background.position[1]+240))
+                character = Character_1((background.position[0]+50, background.position[1]+187), background)
+                my_image_.paste(character.shape, (50, 187))
+                joystick.disp.image(my_image_)
+                i += 1
+            elif flag == False:
+                background.jump_down()
+                my_image_ = background.shape.crop((background.position[0], background.position[1], background.position[0]+240, background.position[1]+240))
+                character = Character_1((background.position[0]+50, background.position[1]+187), background)
+                my_image_.paste(character.shape, (50, 187))
+                joystick.disp.image(my_image_)
+                i -= 1
+                
         command = {'move': False, 'up': False , 'down': False, 'left': False, 'right': False, 'attack': False, 'haam': False}
         
         # move
@@ -127,7 +150,7 @@ def main():
                         elif enemy == plant:
                             character_.state = 'plant'
                 
-            time.sleep(2)
+            time.sleep(1)
             my_image_ = background.shape.crop((background.position[0], background.position[1], background.position[0]+240, background.position[1]+240))
             if character_.state == 'plant':
                 character = Character_plant_1((background.position[0]+50, background.position[1]+187), background)
@@ -150,64 +173,8 @@ def main():
         background.move(command) 
         
         if command['up'] == True and command['move'] == True:
-            if character_.direction == 'right':
-                if character_.state == 'plant':
-                    for _ in range(0, 15):
-                        background.jump()
-                        my_image_ = background.shape.crop((background.position[0], background.position[1], background.position[0]+240, background.position[1]+240))
-                        character = Character_plant_1((background.position[0]+50, background.position[1]+187), background)
-                        my_image_.paste(character.shape, (50, 187))
-                        joystick.disp.image(my_image_)
-                    for _ in range(0, 15):
-                        background.jump_down()
-                        my_image_ = background.shape.crop((background.position[0], background.position[1], background.position[0]+240, background.position[1]+240))
-                        character = Character_plant_1((background.position[0]+50, background.position[1]+187), background)
-                        my_image_.paste(character.shape, (50, 187))
-                        joystick.disp.image(my_image_)
-                        #충돌 체크 코드
-                elif character_.state == None:
-                    for _ in range(0, 15):
-                        background.jump()
-                        my_image_ = background.shape.crop((background.position[0], background.position[1], background.position[0]+240, background.position[1]+240))
-                        character = Character_1((background.position[0]+50, background.position[1]+187), background)
-                        my_image_.paste(character.shape, (50, 187))
-                        joystick.disp.image(my_image_)
-                    for _ in range(0, 15):
-                        background.jump_down()
-                        my_image_ = background.shape.crop((background.position[0], background.position[1], background.position[0]+240, background.position[1]+240))
-                        character = Character_1((background.position[0]+50, background.position[1]+187), background)
-                        my_image_.paste(character.shape, (50, 187))
-                        joystick.disp.image(my_image_)
-                        #충돌 체크 코드
-            elif character_.direction == 'left':
-                if character_.state == 'plant':
-                    for _ in range(0, 15):
-                        background.jump()
-                        my_image_ = background.shape.crop((background.position[0], background.position[1], background.position[0]+240, background.position[1]+240))
-                        character = Character_plant_Left_1((background.position[0]+50, background.position[1]+187), background)
-                        my_image_.paste(character.shape, (50, 187))
-                        joystick.disp.image(my_image_)
-                    for _ in range(0, 15):
-                        background.jump_down()
-                        my_image_ = background.shape.crop((background.position[0], background.position[1], background.position[0]+240, background.position[1]+240))
-                        character = Character_plant_Left_1((background.position[0]+50, background.position[1]+187), background)
-                        my_image_.paste(character.shape, (50, 187))
-                        joystick.disp.image(my_image_)
-                        #충돌 체크 코드
-                elif character_.state == None:
-                    for _ in range(0, 15):
-                        background.jump()
-                        my_image_ = background.shape.crop((background.position[0], background.position[1], background.position[0]+240, background.position[1]+240))
-                        character = Character_Left_1((background.position[0]+50, background.position[1]+187), background)
-                        my_image_.paste(character.shape, (50, 187))
-                        joystick.disp.image(my_image_)
-                    for _ in range(0, 15):
-                        background.jump_down()
-                        my_image_ = background.shape.crop((background.position[0], background.position[1], background.position[0]+240, background.position[1]+240))
-                        character = Character_Left_1((background.position[0]+50, background.position[1]+187), background)
-                        my_image_.paste(character.shape, (50, 187))
-                        joystick.disp.image(my_image_)
-                        #충돌 체크 코드
+            isJump = True
+            
                 
                
         if command['move']==True and command['right']==True:
