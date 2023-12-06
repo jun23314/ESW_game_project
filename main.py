@@ -66,25 +66,28 @@ def main():
             
         # spit it out    
         if not joystick.button_Down.value:
-            character_.state = None
-            if character_.direction == 'right':
-                my_image_ = background.shape.crop((background.position[0], background.position[1], background.position[0]+240, background.position[1]+240))
-                character = Character_down((background.position[0]+50, background.position[1]+187), background)
-                my_image_.paste(character.shape, (50, 187))
-                joystick.disp.image(my_image_)
-                my_image_ = background.shape.crop((background.position[0], background.position[1], background.position[0]+240, background.position[1]+240))
-                character = Character_1((background.position[0]+50, background.position[1]+187), background)
-                my_image_.paste(character.shape, (50, 187))
-                joystick.disp.image(my_image_)
-            elif character_.direction == 'right':
-                my_image_ = background.shape.crop((background.position[0], background.position[1], background.position[0]+240, background.position[1]+240))
-                character = Character_down_left((background.position[0]+50, background.position[1]+187), background)
-                my_image_.paste(character.shape, (50, 187))
-                joystick.disp.image(my_image_)
-                my_image_ = background.shape.crop((background.position[0], background.position[1], background.position[0]+240, background.position[1]+240))
-                character = Character_Left_1((background.position[0]+50, background.position[1]+187), background)
-                my_image_.paste(character.shape, (50, 187))
-                joystick.disp.image(my_image_)
+            if character_.state == None:
+                continue
+            else:
+                character_.state = None
+                if character_.direction == 'right':
+                    my_image_ = background.shape.crop((background.position[0], background.position[1], background.position[0]+240, background.position[1]+240))
+                    character = Character_down((background.position[0]+50, background.position[1]+187), background)
+                    my_image_.paste(character.shape, (50, 187))
+                    joystick.disp.image(my_image_)
+                    my_image_ = background.shape.crop((background.position[0], background.position[1], background.position[0]+240, background.position[1]+240))
+                    character = Character_1((background.position[0]+50, background.position[1]+187), background)
+                    my_image_.paste(character.shape, (50, 187))
+                    joystick.disp.image(my_image_)
+                elif character_.direction == 'right':
+                    my_image_ = background.shape.crop((background.position[0], background.position[1], background.position[0]+240, background.position[1]+240))
+                    character = Character_down_left((background.position[0]+50, background.position[1]+187), background)
+                    my_image_.paste(character.shape, (50, 187))
+                    joystick.disp.image(my_image_)
+                    my_image_ = background.shape.crop((background.position[0], background.position[1], background.position[0]+240, background.position[1]+240))
+                    character = Character_Left_1((background.position[0]+50, background.position[1]+187), background)
+                    my_image_.paste(character.shape, (50, 187))
+                    joystick.disp.image(my_image_)
             
         # eat    
         if not joystick.button_Five.value:
