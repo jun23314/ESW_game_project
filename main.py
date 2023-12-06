@@ -50,7 +50,7 @@ def main():
     background.shape.paste(tree.shape, tree.position)
     flower = Enemy_flower((150, 543), background.shape)
     background.shape.paste(flower.shape, flower.position)
-    boss = Enemy_boss((350, 403), background.shape)
+    boss = Enemy_boss((300, 403), background.shape)
     background.shape.paste(boss.shape, boss.position)
 
     character_ = Character_1((background.position[0]+50, background.position[1]+187), background)
@@ -125,7 +125,6 @@ def main():
             for enemy in enemys:
                 
                 collision = character.overlap(character.attack, enemy.attack)
-                print(collision)
                 if collision:
                     if enemy.state == 'live':
                         enemy.state = 'dead'
@@ -337,6 +336,7 @@ def main():
         
         check = 0        
         for enemy in enemys:
+            print(enemy.state)
             if enemy.state == 'dead':
                 check += 1
                 
