@@ -190,7 +190,7 @@ def main():
                 my_image_.paste(character.shape, (50, 187))
                 joystick.disp.image(my_image_)
                 before = character_.life
-                character_.collision_check(character, enemy, character_)
+                character_.collision_check(character, enemys, character_)
                 after = character_.life
                 if before != after:
                     for _ in range(0, (5 - character_.life)):
@@ -220,7 +220,7 @@ def main():
                 my_image_.paste(character.shape, (50, 187))
                 joystick.disp.image(my_image_)
                 before = character_.life
-                character_.collision_check(character, enemy, character_)
+                character_.collision_check(character, enemys, character_)
                 after = character_.life
                 if before != after:
                     for _ in range(0, (5 - character_.life)):
@@ -260,7 +260,7 @@ def main():
                     my_image_.paste(character.shape, (50, 187))
                     joystick.disp.image(my_image_)
                     before = character_.life
-                    character_.collision_check(character, enemy, character_)
+                    character_.collision_check(character, enemys, character_)
                     after = character_.life
                     if before != after:
                         for _ in range(0, (5 - character_.life)):
@@ -290,7 +290,7 @@ def main():
                 my_image_.paste(character.shape, (50, 187))
                 joystick.disp.image(my_image_)
                 before = character_.life
-                character_.collision_check(character, enemy, character_)
+                character_.collision_check(character, enemys, character_)
                 after = character_.life
                 if before != after:
                     for _ in range(0, (5 - character_.life)):
