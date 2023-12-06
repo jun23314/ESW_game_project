@@ -20,6 +20,8 @@ from Character_plant_Left_3 import Character_plant_Left_3
 from Character_plant_Left_4 import Character_plant_Left_4
 from Character_haam import Character_haam
 from Character_haam_plant import Character_haam_plant
+from Character_haam_left import Character_haam_left
+from Character_haam_plant_left import Character_haam_plant_left
 from Enemy_1 import Enemy_1
 from Enemy_2 import Enemy_2
 from Bullet import Bullet
@@ -49,11 +51,7 @@ def main():
     while True:
         command = {'move': False, 'up': False , 'down': False, 'left': False, 'right': False, 'attack': False, 'haam': False}
         
-        # 이동
-        if not joystick.button_Down.value:
-            command['down'] = True
-            command['move'] = True
-
+        # move
         if not joystick.button_Left.value: 
             command['left'] = True
             command['move'] = True
@@ -62,12 +60,32 @@ def main():
             command['right'] = True
             command['move'] = True
             
+        # spit it out    
+        if not joystick.button_Down.value:
+            character.state == None
+            if command['right'] == True:
+                my_image_ = background.shape.crop((background.position[0], background.position[1], background.position[0]+240, background.position[1]+240))
+                character = Character_1((background.position[0]+50, background.position[1]+187), background)
+                my_image_.paste(character.shape, (50, 187))
+                joystick.disp.image(my_image_)
+            elif command['left'] == True:
+                my_image_ = background.shape.crop((background.position[0], background.position[1], background.position[0]+240, background.position[1]+240))
+                character = Character_Left_1((background.position[0]+50, background.position[1]+187), background)
+                my_image_.paste(character.shape, (50, 187))
+                joystick.disp.image(my_image_)
             
+        # eat    
         if not joystick.button_Five.value:
             if character_.state == 'eat':
-                character = Character_haam_plant((background.position[0]+50, background.position[1]+187), background)
+                if command['left'] == True:
+                    character = Character_haam_plant_left((background.position[0]+50, background.position[1]+187), background)
+                elif command['right'] == True:
+                    character = Character_haam_plant((background.position[0]+50, background.position[1]+187), background)
             else:
-                character = Character_haam((background.position[0]+50, background.position[1]+187), background)
+                if command['left'] == True:
+                    character = Character_haam_left((background.position[0]+50, background.position[1]+187), background)
+                elif command['right'] == True:
+                    character = Character_haam((background.position[0]+50, background.position[1]+187), background)
             my_image_ = background.shape.crop((background.position[0], background.position[1], background.position[0]+240, background.position[1]+240))
             my_image_.paste(character.shape, (50, 187))
             joystick.disp.image(my_image_)
