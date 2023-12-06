@@ -43,7 +43,7 @@ def main():
     background.shape.paste(plant.shape, plant.position)
     tree = Enemy_2((250, 503), background.shape)
     background.shape.paste(tree.shape, tree.position)
-    flower = Enemy_flower((170, 503), background.shape)
+    flower = Enemy_flower((170, 543), background.shape)
     background.shape.paste(flower.shape, flower.position)
 
     character_ = Character_1((background.position[0]+50, background.position[1]+187), background)
