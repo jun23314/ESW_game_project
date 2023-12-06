@@ -28,6 +28,7 @@ from Character_flower import Character_flower
 from Enemy_1 import Enemy_1
 from Enemy_2 import Enemy_2
 from Enemy_flower import Enemy_flower
+from Enemy_boss import Enemy_boss
 from Bullet import Bullet
 from Joystick import Joystick
 from BackGround import BackGround
@@ -42,18 +43,20 @@ def main():
     i = 0
     
     
-    plant = Enemy_1((100, 543), background.shape)
+    plant = Enemy_1((200, 543), background.shape)
     background.shape.paste(plant.shape, plant.position)
     tree = Enemy_2((250, 503), background.shape)
     background.shape.paste(tree.shape, tree.position)
     flower = Enemy_flower((170, 543), background.shape)
     background.shape.paste(flower.shape, flower.position)
+    boss = Enemy_boss((100, 543), background.shape)
+    background.shape.paste(boss.shape, boss.position)
 
     character_ = Character_1((background.position[0]+50, background.position[1]+187), background)
     my_image_ = background.shape.crop((background.position[0],background.position[1], background.position[0]+240, background.position[1]+240))
     my_image_.paste(character_.shape, (50, 187))
     
-    enemys = [plant, flower, tree]
+    enemys = [plant, flower, tree, boss]
     
     joystick.disp.image(start_)
 
