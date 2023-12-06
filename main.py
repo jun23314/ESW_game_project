@@ -91,7 +91,7 @@ def main():
                     enemy.death(newBackground.shape)
                     background.shape.paste(enemy.shape_, (enemy.position[0], enemy.position[1]))
                     #my_image_ = background.shape.crop((background.position[0], background.position[1], background.position[0]+240, background.position[1]+240))
-                    joystick.disp.image(newBackground)
+                    joystick.disp.image(background)
                     
 
                     
