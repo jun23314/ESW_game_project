@@ -15,7 +15,7 @@ class Character_1:
         self.center = np.array([position[0]+15, position[1]+15])
 
     def collision_check(self, character, enemys, character_):
-        for enemy in enemys:
+        for enemy in enemys[::-1]:
             
             collision = self.overlap(character.safe, enemy.attack)
 
