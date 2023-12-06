@@ -14,6 +14,8 @@ class Bullet_5:
         for enemy in enemys:
             collision = self.overlap(enemy.attack, self.attack)
             print(enemy.attack)
+            print("--------------------------------------------------------")
+            print(self.attack)
 
             if collision:
                 if enemy.state == 'live':
