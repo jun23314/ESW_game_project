@@ -55,20 +55,22 @@ def main():
         if not joystick.button_Left.value: 
             command['left'] = True
             command['move'] = True
+            character_.direction = 'left'
 
         if not joystick.button_Right.value: 
             command['right'] = True
             command['move'] = True
+            character_.direction = 'right'
             
         # spit it out    
         if not joystick.button_Down.value:
-            character.state == None
-            if command['right'] == True:
+            character_.state == None
+            if character_.direction == 'right':
                 my_image_ = background.shape.crop((background.position[0], background.position[1], background.position[0]+240, background.position[1]+240))
                 character = Character_1((background.position[0]+50, background.position[1]+187), background)
                 my_image_.paste(character.shape, (50, 187))
                 joystick.disp.image(my_image_)
-            elif command['left'] == True:
+            elif character_.direction == 'right':
                 my_image_ = background.shape.crop((background.position[0], background.position[1], background.position[0]+240, background.position[1]+240))
                 character = Character_Left_1((background.position[0]+50, background.position[1]+187), background)
                 my_image_.paste(character.shape, (50, 187))
@@ -77,14 +79,14 @@ def main():
         # eat    
         if not joystick.button_Five.value:
             if character_.state == 'eat':
-                if command['left'] == True:
+                if character_.direction == 'left':
                     character = Character_haam_plant_left((background.position[0]+50, background.position[1]+187), background)
-                elif command['right'] == True:
+                elif character_.direction == 'right':
                     character = Character_haam_plant((background.position[0]+50, background.position[1]+187), background)
             else:
-                if command['left'] == True:
+                if character_.direction == 'left':
                     character = Character_haam_left((background.position[0]+50, background.position[1]+187), background)
-                elif command['right'] == True:
+                elif character_.direction == 'right':
                     character = Character_haam((background.position[0]+50, background.position[1]+187), background)
             my_image_ = background.shape.crop((background.position[0], background.position[1], background.position[0]+240, background.position[1]+240))
             my_image_.paste(character.shape, (50, 187))
