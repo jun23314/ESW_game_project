@@ -4,7 +4,7 @@ from PIL import Image
 class BackGround:
     def __init__(self):
         self.shape = Image.open("background.png").convert('RGBA')
-        self.position = (0, 355)
+        self.position = (135, 355)
         
     def move(self, command = None):
         self.list = list(self.position)
