@@ -8,7 +8,6 @@ class Bullet_5:
         self.shape = Image.alpha_composite(background, self.shape)
         self.attack = np.array([90, 152, 98, 157])
         self.touch = 3
-        self.position = character.position
         self.shot = False
 
     def collision_check_long(self, enemys):
@@ -24,6 +23,10 @@ class Bullet_5:
 
     def overlap(self, ego_position, other_position):
         return (ego_position[2] >= other_position[0] >= ego_position[0] or ego_position[2]>=other_position[2] >= ego_position[0]) and (ego_position[1] <= other_position[1] <= ego_position[3] or ego_position[1] <= other_position[3] <= ego_position[3])
+    
+    def death(self, background):
+        self.state = 'death'
+        self.shape_ = background.crop((90, 152, 98, 157))
                 
                 
                 
