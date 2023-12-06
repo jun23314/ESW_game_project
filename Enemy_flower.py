@@ -6,7 +6,7 @@ class Enemy_flower:
         background = background.crop((position[0], position[1], position[0]+30, position[1]+30))
         self.shape = Image.open("flower.png").convert('RGBA')
         self.shape = Image.alpha_composite(background, self.shape)
-        self.attack = np.array([position[0]+10, position[1], position[0] + 20, position[1] + 20])
+        self.attack = np.array([position[0]+10, position[1], position[0] + 20, position[1] + 15])
         self.state = 'live'
         self.touch = 1
         self.life = 1
