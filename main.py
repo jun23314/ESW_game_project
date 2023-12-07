@@ -56,16 +56,20 @@ def main():
     flag = True # if true : up, false : down
     i = 0
     
+    
     box = Enemy_box((100, 523), background.shape)
     background.shape.paste(box.shape, box.position)
-    plant = Enemy_1((200, 523), background.shape)
-    background.shape.paste(plant.shape, plant.position)
+    
     flower = Enemy_flower((150, 523), background.shape)
     background.shape.paste(flower.shape, flower.position)
-    boss = Enemy_boss((300, 403), background.shape)
-    tree = Enemy_2((250, 493), background.shape)
+    
+    plant = Enemy_1((210, 523), background.shape)
+    background.shape.paste(plant.shape, plant.position)
+    
+    tree = Enemy_2((260, 503), background.shape)
     background.shape.paste(tree.shape, tree.position)
     
+    boss = Enemy_boss((330, 403), background.shape)  
     background.shape.paste(boss.shape, boss.position)
 
     character_ = Character_1((background.position[0]+50, background.position[1]+167), background)

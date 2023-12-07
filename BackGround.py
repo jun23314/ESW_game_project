@@ -16,7 +16,7 @@ class BackGround:
                     self.list[0] = self.list[0]
                 
             if command['right']:
-                if(self.list[0]<259):
+                if(self.list[0]<359):
                     self.list[0] += 5
                 else:
                     self.list[0] = self.list[0]
