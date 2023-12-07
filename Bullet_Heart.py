@@ -1,10 +1,10 @@
 import numpy as np
 from PIL import Image
 
-class Bullet_5:
+class Bullet_Heart:
     def __init__(self,background, character):
-        background = background.crop((95, 182, 100, 187))
-        self.shape = Image.open('bullet.png').convert('RGBA')
+        background = background.crop((105, 182, 114, 187))
+        self.shape = Image.open('heart.png').convert('RGBA')
         self.shape = Image.alpha_composite(background, self.shape)
         self.attack = np.array([character.center[0] , character.center[1] - 2.5 , character.center[0] + 20, character.center[1] + 2.5])
         self.touch = 3
@@ -28,7 +28,7 @@ class Bullet_5:
     
     def death(self, background):
         self.state = 'death'
-        self.shape_ = background.crop((95, 182, 100, 187))
+        self.shape_ = background.crop((90, 182, 98, 187))
                 
                 
                 

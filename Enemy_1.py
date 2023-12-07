@@ -9,7 +9,7 @@ class Enemy_1:
         self.attack = np.array([position[0], position[1], position[0] + 30, position[1] + 30])
         self.touch = 1
         self.state = 'live'
-        self.life = 1
+        self.life = 5
         self.position = position
 
     def death(self, background):
