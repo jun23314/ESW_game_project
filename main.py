@@ -305,10 +305,7 @@ def main():
                         my_image_.paste(character.shape, (50, 167))
                         joystick.disp.image(my_image_)
             
-            if character_.life <= 0:
-                my_image_ = Image.open('gameover.png')
-                joystick.disp.image(my_image_)
-                exit(0)
+            
                 
             
         if command['move']==True and command['left']==True:
@@ -441,6 +438,11 @@ def main():
             my_image_ = Image.open('clear.png')
             joystick.disp.image(my_image_)
             exit(0)
+            
+        if character_.life <= 0:
+                my_image_ = Image.open('gameover.png')
+                joystick.disp.image(my_image_)
+                exit(0)
                 
     joystick.disp.image(my_image_)
         
