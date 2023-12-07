@@ -246,7 +246,7 @@ def main():
                     enemy_ = Tree_Broken_3((background.position[0]+50, background.position[1]+167), background)
                     my_image_.paste(enemy_.shape, (50, 167))
                     joystick.disp.image(my_image_)
-                elif enemy.life <= 12 and enemy.state == 'live':
+                elif enemy.life < 12 and enemy.state == 'live':
                     my_image_ = background.shape.crop((background.position[0], background.position[1], background.position[0]+240, background.position[1]+240))
                     enemy_ = Tree_Broken_2((background.position[0]+50, background.position[1]+167), background)
                     my_image_.paste(enemy_.shape, (50, 167))
