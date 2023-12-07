@@ -87,7 +87,7 @@ def main():
             command['move'] = True
             
         if not joystick.button_Six.value:
-            bullet = Bullet_5(my_image_, character_)
+            bullet = Bullet_5(background, character)
             before = bullet.shot
             my_image_.paste(bullet.shape, (93, 182))
             joystick.disp.image(my_image_)
@@ -182,8 +182,8 @@ def main():
                 my_image_.paste(character.shape, (50, 167))
                 joystick.disp.image(my_image_)
                     
+                    
         background.move(command) 
-        
         if command['up'] == True and command['move'] == True:
             if isJump == True:
                 continue
@@ -345,7 +345,7 @@ def main():
             if flag == True:
                 background.jump()
                 my_image_ = background.shape.crop((background.position[0], background.position[1], background.position[0]+240, background.position[1]+240))
-                character = Character_1((background.position[0]+50, background.position[1]+167), background)
+                character_ = Character_1((background.position[0]+50, background.position[1]+167), background)
                 my_image_.paste(character.shape, (50, 167))
                 joystick.disp.image(my_image_)
                 i += 1
