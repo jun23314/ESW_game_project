@@ -185,6 +185,8 @@ def main():
                 character = Character_plant_1((background.position[0]+50, background.position[1]+167), background)
             elif character_.state == 'flower':
                 character = Character_flower((background.position[0]+50, background.position[1]+167), background)
+            elif character_.state == 'box':
+                character = Character_Box_1((background.position[0]+50, background.position[1]+167), background)
             elif character_.state == None:
                 character = Character_1((background.position[0]+50, background.position[1]+167), background)
             my_image_.paste(character.shape, (50, 167))
