@@ -7,7 +7,7 @@ class Bullet_Heart:
         self.shape = Image.open('heart.png').convert('RGBA')
         self.shape = Image.alpha_composite(background, self.shape)
         self.attack = np.array([character.center[0] , character.center[1] - 4.5 , character.center[0] + 40, character.center[1] + 4.5])
-        self.touch = 3
+        self.touch = 4
         self.shot = False
 
     def collision_check_long(self, enemys):

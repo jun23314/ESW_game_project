@@ -182,7 +182,7 @@ def main():
             for enemy in enemys:
                 collision = character.overlap(character.attack, enemy.attack)
                 if collision:
-                    if enemy.state == 'live' and enemy.life <= 5:
+                    if enemy.state == 'live' and enemy.life <= 0:
                         enemy.state = 'death'
                         if enemy == flower:
                             character_.state = 'flower'
