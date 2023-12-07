@@ -81,6 +81,7 @@ def main():
     joystick.disp.image(start_)
 
     while True:               
+        print(character_.state)
         command = {'move': False, 'up': False , 'down': False, 'left': False, 'right': False, 'attack': False, 'haam': False}
         
         # move
@@ -210,7 +211,11 @@ def main():
                 joystick.disp.image(my_image_)
                     
                     
-        background.move(command) 
+        if character_.state == 'flower':
+            continue
+        else:
+            background.move(command) 
+        
         if command['up'] == True and command['move'] == True:
             if isJump == True:
                 continue
