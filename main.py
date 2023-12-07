@@ -213,20 +213,20 @@ def main():
                 if enemy.life <= 0 and enemy.state == 'live':
                     enemy.state = 'death'
                     my_image_ = background.shape.crop((background.position[0], background.position[1], background.position[0]+240, background.position[1]+240))
-                    enemy = Tree_Disappear_1((background.position[0]+50, background.position[1]+167), background)
-                    my_image_.paste(enemy.shape, (50, 167))
+                    enemy_ = Tree_Disappear_1((background.position[0]+50, background.position[1]+167), background)
+                    my_image_.paste(enemy_.shape, (50, 167))
                     joystick.disp.image(my_image_)
                     time.sleep(1)
                     
                     my_image_ = background.shape.crop((background.position[0], background.position[1], background.position[0]+240, background.position[1]+240))
-                    enemy = Tree_Disappear_2((background.position[0]+50, background.position[1]+167), background)
-                    my_image_.paste(enemy.shape, (50, 167))
+                    enemy_ = Tree_Disappear_2((background.position[0]+50, background.position[1]+167), background)
+                    my_image_.paste(enemy_.shape, (50, 167))
                     joystick.disp.image(my_image_)
                     time.sleep(1)
                     
                     my_image_ = background.shape.crop((background.position[0], background.position[1], background.position[0]+240, background.position[1]+240))
-                    enemy = Tree_Disappear_3((background.position[0]+50, background.position[1]+167), background)
-                    my_image_.paste(enemy.shape, (50, 167))
+                    enemy_ = Tree_Disappear_3((background.position[0]+50, background.position[1]+167), background)
+                    my_image_.paste(enemy_.shape, (50, 167))
                     joystick.disp.image(my_image_)
                     time.sleep(1)
                     
@@ -238,18 +238,18 @@ def main():
                     
                 elif enemy.life <= 5 and enemy.state == 'live':
                     my_image_ = background.shape.crop((background.position[0], background.position[1], background.position[0]+240, background.position[1]+240))
-                    enemy = Tree_Broken_4((background.position[0]+50, background.position[1]+167), background)
-                    my_image_.paste(enemy.shape, (50, 167))
+                    enemy_ = Tree_Broken_4((background.position[0]+50, background.position[1]+167), background)
+                    my_image_.paste(enemy_.shape, (50, 167))
                     joystick.disp.image(my_image_)
                 elif enemy.life <= 10 and enemy.state == 'live':
                     my_image_ = background.shape.crop((background.position[0], background.position[1], background.position[0]+240, background.position[1]+240))
-                    enemy = Tree_Broken_3((background.position[0]+50, background.position[1]+167), background)
-                    my_image_.paste(enemy.shape, (50, 167))
+                    enemy_ = Tree_Broken_3((background.position[0]+50, background.position[1]+167), background)
+                    my_image_.paste(enemy_.shape, (50, 167))
                     joystick.disp.image(my_image_)
                 elif enemy.life <= 12 and enemy.state == 'live':
                     my_image_ = background.shape.crop((background.position[0], background.position[1], background.position[0]+240, background.position[1]+240))
-                    enemy = Tree_Broken_2((background.position[0]+50, background.position[1]+167), background)
-                    my_image_.paste(enemy.shape, (50, 167))
+                    enemy_ = Tree_Broken_2((background.position[0]+50, background.position[1]+167), background)
+                    my_image_.paste(enemy_.shape, (50, 167))
                     joystick.disp.image(my_image_)
                     
             if enemy.state == 'death' or enemy.life <= 0:
