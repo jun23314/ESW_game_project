@@ -13,6 +13,8 @@ class Bullet_5:
     def collision_check_long(self, enemys):
         for enemy in enemys:
             collision = self.overlap(enemy.attack, self.attack)
+            print(self.attack)
+            print(enemy.attack)
 
             if collision:
                 if enemy.state == 'live':
