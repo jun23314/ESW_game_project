@@ -8,8 +8,9 @@ class Character_plant_Left_1:
         self.shape = Image.alpha_composite(background, self.shape)
         self.life = 3
         self.safe = np.array([position[0] , position[1] , position[0] + 30, position[1] + 30])
-        self.state = None
+        self.state = 'plant'
         self.position = position
+        self.direction = 'right'
         self.center = np.array([position[0]+15, position[1]+15])
 
     def collision_check(self, character, enemys, character_):

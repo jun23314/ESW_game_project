@@ -9,6 +9,7 @@ class Character_Left_1:
         self.life = 3
         self.safe = np.array([position[0] , position[1] , position[0] + 30, position[1] + 30])
         self.state = None
+        self.direction = 'left'
         self.position = position
         self.center = np.array([position[0]+15, position[1]+15])
 
