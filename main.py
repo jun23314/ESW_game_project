@@ -51,10 +51,14 @@ def main():
     joystick = Joystick()
     background = BackGround()
     newBackground = BackGround()
-    start_ = Image.open('start.png')
     isJump = False
     flag = True # if true : up, false : down
     i = 0
+    
+    explain_ = Image.open("explain.png")
+    joystick.disp.image(explain_)
+    
+    time.sleep(5)
     
     
     box = Enemy_box((100, 523), background.shape)
@@ -78,6 +82,7 @@ def main():
     
     enemys = [box, plant, flower, tree, boss]
     
+    start_ = Image.open('start.png')
     joystick.disp.image(start_)
 
     while True:               
