@@ -98,7 +98,7 @@ def main():
             command['move'] = True
             
         if not joystick.button_Six.value:
-            bullet = Bullet_5(background, character)
+            bullet = Bullet_5(my_image_, character)
             before = bullet.shot
             my_image_.paste(bullet.shape, (93, 182))
             joystick.disp.image(my_image_)
