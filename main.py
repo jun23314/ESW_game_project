@@ -42,10 +42,7 @@ from Enemy_2 import Enemy_2
 from Enemy_box import Enemy_box
 from Enemy_flower import Enemy_flower
 from Enemy_boss import Enemy_boss
-from Bullet import Bullet
-from Bullet_2 import Bullet_2
-from Bullet_3 import Bullet_3
-from Bullet_4 import Bullet_4
+from Bullet_Heart import Bullet_Heart
 from Bullet_5 import Bullet_5
 from Joystick import Joystick
 from BackGround import BackGround
@@ -110,11 +107,18 @@ def main():
                 my_image_ = background.shape.crop((background.position[0], background.position[1], background.position[0]+240, background.position[1]+240))
                 my_image_.paste(character.shape, (50, 167))
                 joystick.disp.image(my_image_)
-            
-            
-            if before != after:
-                bullet.shot = False
-                continue            
+            if character_.state == 'box':
+                bullet = Bullet_Heart(my_image_, character)
+                before = bullet.shot
+                my_image_.paste(bullet.shape, (105, 182))
+                joystick.disp.image(my_image_)
+                bullet.collision_check_long(enemys)
+                after = bullet.shot
+                bullet.death(newBackground.shape)
+                background.shape.paste(bullet.shape_, (105, 182))
+                my_image_ = background.shape.crop((background.position[0], background.position[1], background.position[0]+240, background.position[1]+240))
+                my_image_.paste(character.shape, (50, 167))
+                joystick.disp.image(my_image_)         
             
         # spit it out    
         if not joystick.button_Down.value:

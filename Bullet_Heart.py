@@ -3,7 +3,7 @@ from PIL import Image
 
 class Bullet_Heart:
     def __init__(self,background, character):
-        background = background.crop((105, 182, 114, 187))
+        background = background.crop((105, 182, 114, 191))
         self.shape = Image.open('heart.png').convert('RGBA')
         self.shape = Image.alpha_composite(background, self.shape)
         self.attack = np.array([character.center[0] , character.center[1] - 2.5 , character.center[0] + 20, character.center[1] + 2.5])
@@ -28,7 +28,7 @@ class Bullet_Heart:
     
     def death(self, background):
         self.state = 'death'
-        self.shape_ = background.crop((90, 182, 98, 187))
+        self.shape_ = background.crop((105, 182, 114, 191))
                 
                 
                 
